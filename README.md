@@ -22,10 +22,14 @@ git pull
 ```
 git add 追加したいファイル
 git commit -m "first commit"
-git push -u origin 自分の作成したブランチ名
+git push -u リモートリポジトリの別名 自分の作成したブランチ名(mainに入れる場合は書かなくてOK)
 ```
+##
 
 ## seri
 
 ## hamihami
 
+## 共有ドライブ
+承認された人のみしかアクセスできません
+[リンクをクリック](https://docs.google.com/document/d/1av9UkZ1ZuwkeNMDYYRMF8-IFZmgn0BRz8UIhooc6UAc/edit)
