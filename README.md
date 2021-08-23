@@ -24,5 +24,11 @@ git add 追加したいファイル
 git commit -m "first commit"
 git push -u リモートリポジトリの別名 自分の作成したブランチ名(mainに入れる場合は書かなくてOK)
 ```
+<<<<<<< HEAD
 ##
+=======
+
+## seri
+
+>>>>>>> f1fbf0cd1ba7bdfe15023d19e95aa41d3e049382
 
