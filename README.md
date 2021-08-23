@@ -28,7 +28,10 @@ git push -u リモートリポジトリの別名 自分の作成したブラン�
 
 ## seri
 
+## Mia
+下にkaeさん入れたらいいんじゃないかな
 
+## hamihami 
 ## 共有ドライブ
 承認された人のみしかアクセスできません
 [リンクをクリック](https://docs.google.com/document/d/1av9UkZ1ZuwkeNMDYYRMF8-IFZmgn0BRz8UIhooc6UAc/edit)
