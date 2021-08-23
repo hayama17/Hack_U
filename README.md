@@ -19,7 +19,7 @@ git pull
 
 
 ## push する
-```
+```偽t
 git add 追加したいファイル
 git commit -m "first commit"
 git push -u リモートリポジトリの別名 自分の作成したブランチ名(mainに入れる場合は書かなくてOK)
@@ -28,7 +28,6 @@ git push -u リモートリポジトリの別名 自分の作成したブラン�
 
 ## seri
 
-## hamihami
 
 ## 共有ドライブ
 承認された人のみしかアクセスできません
