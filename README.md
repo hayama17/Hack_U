@@ -24,8 +24,33 @@ git add 追加したいファイル
 git commit -m "first commit"
 git push -u リモートリポジトリの別名 自分の作成したブランチ名(mainに入れる場合は書かなくてOK)
 ```
-##
+## javaの環境構築
+1. javaのSDK最新版を[ダウンロード](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)
+   1. 解凍して好きな所に置いてください
+2. mavenを[ダウンロード](https://maven.apache.org/download.cgi)
+   1. 解凍して好きな所に置いてください
+3. vscodeの拡張機能でJava Extension Packをインストール
+4. vscodeにSDKのパスを登録　
+   1. 設定からjava.homeと検索
+   2. Json開いて、java.homeを追加
+   ```json
+   例
+    ~色々書いてある~
+    "java.home": "C:\\Program Files\\Java\\jdk-16.0.2"//pathはbinフォルダの上のフォルダまでで良い
+    
+   ```
+   * ，で区切るから一個上の行の最後に","を忘れず
+   * 最後は,要らない
+  
+5. mavenのパスを登録
+   1. 設定からmaven.Executable.pathと検索
+   2. これは設定画面から直接記入できるはず
+    ```cmd
+    例
+    C:\Program Files\apache-maven-3.8.2\bin\mvn.cmd
+    ```
 
+maven出来なかったら連絡下さい。
 ## seri
 
 ## Mia
