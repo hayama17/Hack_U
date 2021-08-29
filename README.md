@@ -50,6 +50,16 @@ git push -u リモートリポジトリの別名 自分の作成したブラン�
     C:\Program Files\apache-maven-3.8.2\bin\mvn.cmd
     ```
 
+
+## javaアプリケーションの実行方法
+```bash
+$ java  -jar --module-path "javaFxのライブラリのパス" --add-modules javafx.controls .\target\test-jar-with-dependencies.jar
+
+ex)羽山公平
+> java  -jar --module-path "C:\Program Files\openjfx-11.0.2_windows-x64_bin-sdk\javafx-sdk-11.0.2\lib" --add-modules javafx.controls .\target\test-jar-with-dependencies.jar
+```
+
+
 maven出来なかったら連絡下さい。
 ## seri
 

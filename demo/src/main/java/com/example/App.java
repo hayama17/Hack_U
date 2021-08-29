@@ -81,11 +81,11 @@ public class App extends Application {
             ArrayList<String> path = new ArrayList<String>();
             if (cbwebhook.isSelected()) {
                 // Pythonのコード実行
-                path.add(Thread.currentThread().getContextClassLoader().getResource("webhook.py").getPath());
+                path.add("../../webhook.py");
             }
             if (cbzoom.isSelected()) {
                 // pythonのコード実行
-                path.add(Thread.currentThread().getContextClassLoader().getResource("Auto_zoom_start.py").getPath());
+                path.add("../../Auto_zoom_start.py");
             }
             for (int i = 0; i < path.size(); i++) {
                 ProcessBuilder processBuilder = new ProcessBuilder("py", path.get(i).substring(3));
