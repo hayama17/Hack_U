@@ -29,8 +29,10 @@ git push -u リモートリポジトリの別名 自分の作成したブラン�
    1. 解凍して好きな所に置いてください
 2. mavenを[ダウンロード](https://maven.apache.org/download.cgi)
    1. 解凍して好きな所に置いてください
-3. vscodeの拡張機能でJava Extension Packをインストール
-4. vscodeにSDKのパスを登録　
+3. javaFXのSDK最新版を[ダウンロード](https://openjfx.io/)
+   1. 解凍して好きな所に置いてください
+5. vscodeの拡張機能でJava Extension Packをインストール
+6. vscodeにSDKのパスを登録　
    1. 設定からjava.homeと検索
    2. Json開いて、java.homeを追加
    ```json
