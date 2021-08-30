@@ -1,10 +1,21 @@
 # Open Hack_U2021 大都会東小金井
 
+## ブランチの構成
+* main readmeのみのため
+* java javaの開発のため(現在は打ち切り)
+* CS　C#の開発のため()
+それぞれのブランチ事にフォルダを作るのをおすすめします
+   * 入れ子管理はまだおすすめしません
+
+基本的にCSを更新していく
 ## 初期作業
 
 1. リポジトリをクローンをする(github上の作業場を自分のローカルにコピーする)
 ```
-git clone https://github.com/hayama17/Hack_U
+git clone https://github.com/hayama17/Hack_U 
+
+ブランチを指定して行う
+git clone -b ブランチ名 ttps://github.com/hayama17/Hack_U.git
 ```
 2. gitにリモートのリポジトリを登録する
 ```
@@ -19,11 +30,24 @@ git pull
 
 
 ## push する
-```偽t
+```git
 git add 追加したいファイル
 git commit -m "first commit"
 git push -u リモートリポジトリの別名 自分の作成したブランチ名(mainに入れる場合は書かなくてOK)
 ```
+
+## C#の環境構築
+1. .netCoreの最新版を[ダウンロード](https://dotnet.microsoft.com/download)
+2. vscodeの拡張機能でC#をインストール
+
+## C#の実行方法
+1. コードを書いたら下記のコマンドで起動します
+   ```
+   $ dotnet run
+   ```
+2. ./bun/Debug/net5.0-windows配下にCS.exeがある
+* net5.0-windows配下の各Json,dllなどが必要になるので配布する際にはフォルダ事zipで送る必要がある
+
 ## javaの環境構築
 1. javaのSDK最新版を[ダウンロード](https://www.oracle.com/java/technologies/javase-jdk16-downloads.html)
    1. 解凍して好きな所に置いてください
@@ -51,7 +75,6 @@ git push -u リモートリポジトリの別名 自分の作成したブラン�
     例
     C:\Program Files\apache-maven-3.8.2\bin\mvn.cmd
     ```
-
 
 ## javaアプリケーションの実行方法
 ```bash
