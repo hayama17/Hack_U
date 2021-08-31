@@ -16,6 +16,8 @@ git clone https://github.com/hayama17/Hack_U
 
 ブランチを指定して行う
 git clone -b ブランチ名 https://github.com/hayama17/Hack_U.git
+#例
+git clone -b CS https://github.com/hayama17/Hack_U.git
 ```
 2. gitにリモートのリポジトリを登録する
 ```
