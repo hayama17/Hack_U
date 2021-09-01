@@ -17,6 +17,6 @@
         </Menu>
         <CheckBox Content="CheckBox1" Margin="35,67,35,0" VerticalAlignment="Top" Height="20" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
         <CheckBox Content="CheckBox2" VerticalAlignment="Top" Height="20" Margin="35,92,35,0" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
-        <Button Content="Button" Margin="0,164,0,0" VerticalAlignment="Top" Height="20" Click="button_clicked"/>
+        <Button Content="Button" VerticalAlignment="Bottom" Height="20" Click="button_clicked"/>
     </Grid>
 </Window>
