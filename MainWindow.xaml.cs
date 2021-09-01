@@ -24,5 +24,17 @@ namespace CS
         {
             InitializeComponent();
         }
+        void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("チェックされました");
+        }
+        void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("チェック外れました");
+        }
+        void button_clicked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("ボタンが押されました");
+        }
     }
 }
