@@ -35,7 +35,7 @@ namespace CS
         }
         void button_clicked(object sender, RoutedEventArgs e)
         {
-            string myPython ="Auto_zoom_start.py";　//".pyのパス"
+            string myPython ="Python/Auto_zoom_start.py";　//".pyのパス"
 
             var myProcess=new Process
             {
