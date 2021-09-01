@@ -1,20 +1,20 @@
 ﻿CS
-
+1.0.0.0
 
 winexe
 C#
 .cs
-C:\Users\sekai\Documents\Hack_U2021\CS\obj\Debug\net5.0-windows\
+c:\Users\serit\HackU2021\HackU\Hack_U_CS\Hack_U\obj\Debug\net5.0-windows\
 CS
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
-C:\Users\sekai\Documents\Hack_U2021\CS\App.xaml
+c:\Users\serit\HackU2021\HackU\Hack_U_CS\Hack_U\App.xaml
 11407045341
 
-3-1233169557
+5-1554921776
 193-1891726104
 MainWindow.xaml;
 
-False
+True
 

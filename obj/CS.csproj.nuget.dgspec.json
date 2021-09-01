@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\CS.csproj": {}
+    "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\CS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\CS.csproj": {
+    "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\CS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\CS.csproj",
+        "projectUniqueName": "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\CS.csproj",
         "projectName": "CS",
-        "projectPath": "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\CS.csproj",
-        "packagesPath": "C:\\Users\\sekai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\obj\\",
+        "projectPath": "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\CS.csproj",
+        "packagesPath": "C:\\Users\\serit\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sekai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\serit\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0-windows"

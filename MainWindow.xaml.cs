@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace CS
 {
@@ -34,7 +35,24 @@ namespace CS
         }
         void button_clicked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("ボタンが押されました");
+            string myPython ="Auto_zoom_start.py";　//".pyのパス"
+
+            var myProcess=new Process
+            {
+                StartInfo=new ProcessStartInfo("python.exe")
+                {
+                    UseShellExecute=false,//呼び出し時にシェル使うか
+                    RedirectStandardOutput=false,//C#の出力にリダイレクトするか
+                    Arguments=myPython
+
+                }
+            };
+
+            myProcess.Start();
+            myProcess.WaitForExit();
+            myProcess.Close();
+            //MessageBox.Show("ボタンが押されました");
+
         }
     }
 }
