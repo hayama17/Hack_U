@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\sekai\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\sekai\\.nuget\\packages"
+      "C:\\Users\\serit\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\serit\\.nuget\\packages"
     ]
   }
 }
