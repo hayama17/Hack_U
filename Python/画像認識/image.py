@@ -27,6 +27,7 @@ def Recolor():
                 pixels[i, j] = (255, 255, 255)
             if (pixels[i, j][2] > bluemin):
                 pixels[i, j] = (255, 255, 255)
+
 Recolor()
 # 画像から文字を読み込む
 builder = pyocr.builders.TextBuilder(tesseract_layout=6)
