@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\CS.csproj": {}
+    "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\CS.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\CS.csproj": {
+    "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\CS.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\CS.csproj",
+        "projectUniqueName": "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\CS.csproj",
         "projectName": "CS",
-        "projectPath": "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\CS.csproj",
-        "packagesPath": "C:\\Users\\sekai\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\obj\\",
+        "projectPath": "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\CS.csproj",
+        "packagesPath": "C:\\Users\\moeha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sekai\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\moeha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0-windows"
+          "net5.0-windows7.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,6 +39,12 @@
       "frameworks": {
         "net5.0-windows7.0": {
           "targetAlias": "net5.0-windows",
+          "dependencies": {
+            "ModernWpfUI": {
+              "target": "Package",
+              "version": "[0.9.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
