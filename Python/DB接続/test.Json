@@ -1,0 +1,24 @@
+{
+    "Monday":{
+        "1":{
+            "zoom_id": "dsfsafasf",
+            "zoom_pwd": "8790dsafao",
+            "webhook_text": "月曜1限始まりました。"
+        },
+        "2":{
+            "zoom_id": "dsfsafasf",
+            "zoom_pwd": "8790dsafao",
+            "webhook_text": "月曜2限始まりました。"
+        }
+    },
+    "Thuesday":{
+        "1":{
+            "zoom_id": "dsfsafasf",
+            "zoom_pwd": "8790dsafao",
+            "webhook_text": "火曜1限始まりました。"
+        }
+    },
+    "Webhook":{
+        "URL": "https://discordapp.com/api/webhooks/881070399167823903/UO78Qq6IFllqSni-SjoDdHN69FKIxvOLgCxN1PYkILW6YbK0wY0Yp6RqFpUr8b71gGXd"
+    }
+}
