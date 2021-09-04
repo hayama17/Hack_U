@@ -21,6 +21,7 @@ namespace CS
     /// </summary>
     public partial class MainWindow : Window
     {
+        private List<string> Py_PATH = new();
         public MainWindow()
         {
             InitializeComponent();
@@ -35,24 +36,34 @@ namespace CS
         }
         void button_clicked(object sender, RoutedEventArgs e)
         {
-            string myPython ="Python/Auto_zoom_start.py";　//".pyのパス"
-
-            var myProcess=new Process
+            if (CH1.IsChecked.Value)
             {
-                StartInfo=new ProcessStartInfo("python.exe")
+                Py_PATH.Add("Python/Auto_zoom_start.py");
+            }
+            if (CH2.IsChecked.Value)
+            {
+                Py_PATH.Add("Python/webhook.py");
+            }
+            for (int i = 0; i < Py_PATH.Count; i++)
+            {
+                var myProcess = new Process
                 {
-                    UseShellExecute=false,//呼び出し時にシェル使うか
-                    RedirectStandardOutput=false,//C#の出力にリダイレクトするか
-                    Arguments=myPython
+                    StartInfo = new ProcessStartInfo("python.exe")
+                    {
+                        UseShellExecute = false,//呼び出し時にシェル使うか
+                        RedirectStandardOutput = false,//C#の出力にリダイレクトするか
+                        Arguments = Py_PATH[i]
 
-                }
-            };
+                    }
+                };
 
-            myProcess.Start();
-            myProcess.WaitForExit();
-            myProcess.Close();
+                myProcess.Start();
+                myProcess.WaitForExit();
+                myProcess.Close();
+            }
             //MessageBox.Show("ボタンが押されました");
 
+            Py_PATH.Clear();
         }
     }
 }

@@ -1,14 +1,18 @@
 {
   "version": 2,
-  "dgSpecHash": "/FlFDXHI/WXtm8PWTwSF5Y+q7OW9pwsJb7uLpdM1lIfGtA19JElsBrNuSMFsCI9WcsHliG3ZzgV/bLmuN/DbfQ==",
+  "dgSpecHash": "CkSfhWWYZKkgh+RlNMhvDvTosNgHq2ei5/TshPR3aTamPzaVwxuHzz0+LZh2m1oBNjz7515qFPX/d2ZftJM6ig==",
   "success": true,
   "projectFilePath": "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\CS.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\moeha\\.nuget\\packages\\microsoft.netcore.platforms\\3.0.0\\microsoft.netcore.platforms.3.0.0.nupkg.sha512",
-    "C:\\Users\\moeha\\.nuget\\packages\\microsoft.windows.sdk.contracts\\10.0.18362.2005\\microsoft.windows.sdk.contracts.10.0.18362.2005.nupkg.sha512",
     "C:\\Users\\moeha\\.nuget\\packages\\modernwpfui\\0.9.4\\modernwpfui.0.9.4.nupkg.sha512",
-    "C:\\Users\\moeha\\.nuget\\packages\\system.runtime.windowsruntime\\4.6.0\\system.runtime.windowsruntime.4.6.0.nupkg.sha512",
-    "C:\\Users\\moeha\\.nuget\\packages\\system.runtime.windowsruntime.ui.xaml\\4.6.0\\system.runtime.windowsruntime.ui.xaml.4.6.0.nupkg.sha512"
+    "C:\\Users\\moeha\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.19\\microsoft.windows.sdk.net.ref.10.0.19041.19.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "キャッシュ ファイルの読み取りの問題 C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

@@ -1,23 +1,26 @@
-﻿<Window x:Class="CS.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:CS" mc:Ignorable="d" Title="MainWindow" Height="200" Width="200">
-	<Grid Name="Grid1">
+﻿<Window x:Class="CS.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:CS" mc:Ignorable="d" Title="MainWindow" Height="257" Width="372">
+	<Grid Name="Grid1" Margin="0,10,0,14">
 		<Grid.ColumnDefinitions>
-			<ColumnDefinition/>
+			<ColumnDefinition Width="254*"/>
+			<ColumnDefinition Width="26*"/>
+			<ColumnDefinition Width="5*"/>
+			<ColumnDefinition Width="87*"/>
 		</Grid.ColumnDefinitions>
-		<Menu VerticalAlignment="Top" Height="18">
-			<MenuItem Header="Test1">
+		<Menu VerticalAlignment="Top" Height="18" Grid.ColumnSpan="4">
+			<MenuItem Header="Test1" Height="22">
 				<MenuItem Header="test1"/>
 				<MenuItem Header="test2"/>
 				<MenuItem Header="test3"/>
 			</MenuItem>
-			<MenuItem Header="Test2">
+			<MenuItem Header="Test2" Height="18">
 				<MenuItem Header="test4"/>
 				<MenuItem Header="test5"/>
 				<MenuItem Header="test6"/>
 			</MenuItem>
 		</Menu>
-		<CheckBox Content="CheckBox1" Margin="35,67,35,0" VerticalAlignment="Top" Height="20" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
-		<CheckBox Content="CheckBox2" VerticalAlignment="Top" Height="20" Margin="35,92,35,0" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
-		<Button Content="Button" VerticalAlignment="Bottom" Height="20" Click="button_clicked"/>
-		<Button Content="wa-" HorizontalAlignment="Center" Margin="0,112,0,0" VerticalAlignment="Top" Height="42" Width="112"/>
+		<CheckBox Content="自動起動" Margin="35,67,0,0" VerticalAlignment="Top" Height="20" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+		<CheckBox Content="議事録" VerticalAlignment="Top" Height="20" Margin="35,96,0,0" Checked="CheckBox_Checked" Unchecked="CheckBox_Unchecked"/>
+		<Button Content="入室&#xD;&#xA;" VerticalAlignment="Top" Height="30" Click="button_clicked" Margin="10,177,0,0"/>
+		<CheckBox Content="チャット監視" Height="20" Margin="35,124,0,0" VerticalAlignment="Top" Width="60"/>
 	</Grid>
 </Window>
