@@ -1,23 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
-    "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\CS.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\CS.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\CS.csproj",
-        "projectName": "CS",
-        "projectPath": "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\CS.csproj",
-        "packagesPath": "C:\\Users\\moeha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\moeha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-=======
     "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\CS.csproj": {}
   },
   "projects": {
@@ -32,10 +15,9 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\serit\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> 39edb5ee40c4ea868fe898ab77e347049a5bf86b
         ],
         "originalTargetFrameworks": [
-          "net5.0-windows10.0.19041"
+          "net5.0-windows10.0.19041.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}

@@ -989,26 +989,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\moeha\\.nuget\\packages\\": {}
-=======
     "C:\\Users\\serit\\.nuget\\packages\\": {}
->>>>>>> 39edb5ee40c4ea868fe898ab77e347049a5bf86b
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\CS.csproj",
-      "projectName": "CS",
-      "projectPath": "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\CS.csproj",
-      "packagesPath": "C:\\Users\\moeha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\moeha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-=======
       "projectUniqueName": "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\CS.csproj",
       "projectName": "CS",
       "projectPath": "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\CS.csproj",
@@ -1017,10 +1002,9 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\serit\\AppData\\Roaming\\NuGet\\NuGet.Config"
->>>>>>> 39edb5ee40c4ea868fe898ab77e347049a5bf86b
       ],
       "originalTargetFrameworks": [
-        "net5.0-windows10.0.19041"
+        "net5.0-windows10.0.19041.0"
       ],
       "sources": {
         "https://api.nuget.org/v3/index.json": {}
@@ -1082,7 +1066,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "キャッシュ ファイルの読み取りの問題 C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "キャッシュ ファイルの読み取りの問題 C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
 }

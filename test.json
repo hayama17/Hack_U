@@ -2,133 +2,163 @@
     "Monday": {
         "First": {
             "Zoom_id": "12345",
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Second": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Third": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Fourth": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Fifth": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         }
     },
     "Tuesday": {
         "First": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Second": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Third": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Fourth": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Fifth": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         }
     },
     "Wednesday": {
         "First": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Second": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Third": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Fourth": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Fifth": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         }
     },
     "Thursday": {
         "First": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Second": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Third": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Fourth": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Fifth": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         }
     },
     "Friday": {
         "First": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Second": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Third": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Fourth": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Fifth": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         }
     },
     "Saturday": {
         "First": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Second": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Third": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Fourth": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         },
         "Fifth": {
             "Zoom_id": null,
-            "Zoom_pwd": null
+            "Zoom_pwd": null,
+            "Meeting_name": null
         }
     }
 }

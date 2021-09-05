@@ -31,6 +31,9 @@ namespace CS
             
             [JsonPropertyName("Zoom_pwd")]
             public string Zoom_pwd{get;set;}
+
+            [JsonPropertyName("Meeting_name")]
+            public string Meeting_name{get;set;}
             //public string Webhook_url{get;set;}
             //public bool Webhook_bl{get;set;}
         }
