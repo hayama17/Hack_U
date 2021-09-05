@@ -158,3 +158,4 @@ C:\Users\sekai\Documents\Hack_U2021\CS\obj\Debug\net5.0-windows10.0.19041.0\CS.d
 C:\Users\sekai\Documents\Hack_U2021\CS\obj\Debug\net5.0-windows10.0.19041.0\ref\CS.dll
 C:\Users\sekai\Documents\Hack_U2021\CS\obj\Debug\net5.0-windows10.0.19041.0\CS.pdb
 C:\Users\sekai\Documents\Hack_U2021\CS\obj\Debug\net5.0-windows10.0.19041.0\CS.genruntimeconfig.cache
+C:\Users\sekai\Documents\Hack_U2021\CS\obj\Debug\net5.0-windows10.0.19041.0\TimeLine.g.cs

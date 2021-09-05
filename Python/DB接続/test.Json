@@ -1,24 +1,135 @@
 {
-    "Monday":{
-        "1":{
-            "zoom_id": "dsfsafasf",
-            "zoom_pwd": "8790dsafao",
-            "webhook_text": "月曜1限始まりました。"
+    "Monday": {
+        "First": {
+
+            "Zoom_id": "12345",
+            "Zoom_pwd": null
         },
-        "2":{
-            "zoom_id": "dsfsafasf",
-            "zoom_pwd": "8790dsafao",
-            "webhook_text": "月曜2限始まりました。"
+        "Second": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Third": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Fourth": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Fifth": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
         }
     },
-    "Thuesday":{
-        "1":{
-            "zoom_id": "dsfsafasf",
-            "zoom_pwd": "8790dsafao",
-            "webhook_text": "火曜1限始まりました。"
+    "Tuesday": {
+        "First": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Second": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Third": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Fourth": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Fifth": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
         }
     },
-    "Webhook":{
-        "URL": "https://discordapp.com/api/webhooks/881070399167823903/UO78Qq6IFllqSni-SjoDdHN69FKIxvOLgCxN1PYkILW6YbK0wY0Yp6RqFpUr8b71gGXd"
+    "Wednesday": {
+        "First": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Second": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Third": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Fourth": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Fifth": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        }
+    },
+    "Thursday": {
+        "First": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Second": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Third": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Fourth": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Fifth": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        }
+    },
+    "Friday": {
+        "First": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Second": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Third": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Fourth": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Fifth": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        }
+    },
+    "Saturday": {
+        "First": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Second": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Third": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Fourth": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        },
+        "Fifth": {
+            "Zoom_id": null,
+            "Zoom_pwd": null
+        }
     }
 }
