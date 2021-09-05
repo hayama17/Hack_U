@@ -26,14 +26,52 @@ namespace CS
         {
             InitializeComponent();
         }
-        void CheckBox_Checked(object sender, RoutedEventArgs e)
+        void CH1CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("チェックされました");
         }
-        void CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        void CH2CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("自動起動をオンにしました");
+        }
+        void CH3CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("議事録をオンにしました");
+        }
+        void CH4CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("チャット監視をオンにしました");
+        }
+        void CH1CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("チェック外れました");
         }
+        void CH3CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("自動起動をオフにしました");
+        }
+        void CH4CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("議事録をオフにしました");
+        }
+        void CH2CheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("チャット監視をオフにしました");
+        }
+        void import_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("インポートが選択されました");
+        }
+        void export_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("エクスポートが選択されました");
+        }
+        void edit_Checked(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("時間割を開きます");
+        }
+
+
         void button_clicked(object sender, RoutedEventArgs e)
         {
             if (CH1.IsChecked.Value)
@@ -64,6 +102,21 @@ namespace CS
             //MessageBox.Show("ボタンが押されました");
 
             Py_PATH.Clear();
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
