@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace CS
 {
@@ -21,6 +23,83 @@ namespace CS
     /// </summary>
     public partial class MainWindow : Window
     {
+        //以下授業クラス"Meeting", 日クラス"Day", 時間割クラス"TimeTable"
+        public class Meeting
+        {   //授業クラス
+            [JsonPropertyName("Zoom_id")]
+            public string Zoom_id{get;set;}
+            
+            [JsonPropertyName("Zoom_pwd")]
+            public string Zoom_pwd{get;set;}
+            //public string Webhook_url{get;set;}
+            //public bool Webhook_bl{get;set;}
+        }
+
+        public class Day
+        {   //日クラス
+
+            
+            [JsonPropertyName("First")]
+            public Meeting First{get;set;}//1限
+
+            [JsonPropertyName("Second")]
+            public Meeting Second{get;set;}
+
+            [JsonPropertyName("Third")]
+            public Meeting Third{get;set;}
+
+            [JsonPropertyName("Fourth")]
+            public Meeting Fourth{get;set;}
+
+            [JsonPropertyName("Fifth")]
+            public Meeting Fifth{get;set;}
+
+            //コンストラクタ
+            public Day(){
+                this.First=new Meeting();
+                this.Second=new Meeting();
+                this.Third=new Meeting();
+                this.Fourth=new Meeting();
+                this.Fifth=new Meeting();
+            }
+        }
+
+        public class TimeTable
+        {   //時間割クラス
+            [JsonPropertyName("Monday")]
+            public Day Monday{get;set;}
+
+            [JsonPropertyName("Tuesday")]
+            public Day Tuesday{get;set;}
+
+            [JsonPropertyName("Wednesday")]
+            public Day Wednesday{get;set;}
+
+            [JsonPropertyName("Thursday")]
+            public Day Thursday{get;set;}
+
+            [JsonPropertyName("Friday")]
+            public Day Friday{get;set;}
+
+            [JsonPropertyName("Saturday")]
+            public Day Saturday{get;set;}
+
+            //コンストラクタ
+            public TimeTable(){
+                this.Monday=new Day();
+                this.Tuesday=new Day();
+                this.Wednesday=new Day();
+                this.Thursday=new Day();
+                this.Friday=new Day();
+                this.Saturday=new Day();
+            }
+
+        }
+        //以上、Jsonを扱うためのクラス群
+
+
+
+
         private List<string> Py_PATH = new();
         public MainWindow()
         {
