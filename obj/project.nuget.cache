@@ -1,12 +1,23 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "CkSfhWWYZKkgh+RlNMhvDvTosNgHq2ei5/TshPR3aTamPzaVwxuHzz0+LZh2m1oBNjz7515qFPX/d2ZftJM6ig==",
+=======
+<<<<<<< HEAD
+  "dgSpecHash": "13QJlDPJUH4z02ynE13Z4qtTQIjWid3PHnpo6Fd+MTxnOIY2LTumCVXKMy591s1X3nHwFpu+XlgufbupoQKbSQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\CS.csproj",
+  "expectedPackageFiles": [],
+=======
+  "dgSpecHash": "QwgOZA9YPGP9ZDIiMpA2CD73Veod12L7f4ZHJcXys40W961WUffBrLvQj8jL0crIgyImtBE817MXhnBMl1coow==",
+>>>>>>> 39edb5ee40c4ea868fe898ab77e347049a5bf86b
   "success": true,
   "projectFilePath": "C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\CS.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\moeha\\.nuget\\packages\\modernwpfui\\0.9.4\\modernwpfui.0.9.4.nupkg.sha512",
     "C:\\Users\\moeha\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.19\\microsoft.windows.sdk.net.ref.10.0.19041.19.nupkg.sha512"
   ],
+<<<<<<< HEAD
   "logs": [
     {
       "code": "Undefined",
@@ -15,4 +26,8 @@
       "message": "キャッシュ ファイルの読み取りの問題 C:\\Users\\moeha\\hack_U_2021_2\\Hack_U\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
+=======
+>>>>>>> 147c887c3b8026c7050ce154f928cdfa5906c4fd
+  "logs": []
+>>>>>>> 39edb5ee40c4ea868fe898ab77e347049a5bf86b
 }
