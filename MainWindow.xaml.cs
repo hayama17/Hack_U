@@ -36,7 +36,7 @@ namespace CS
         }
         void button_clicked(object sender, RoutedEventArgs e)
         {
-            if (CH1.IsChecked.Value)
+            /*if (CH1.IsChecked.Value)
             {
                 Py_PATH.Add("Python/Auto_zoom_start.py");
             }
@@ -55,7 +55,7 @@ namespace CS
                         Arguments = Py_PATH[i]
 
                     }
-                };
+                };*/
 
                 myProcess.Start();
                 myProcess.WaitForExit();
