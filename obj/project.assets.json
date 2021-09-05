@@ -989,24 +989,31 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\serit\\.nuget\\packages\\": {}
+    "C:\\Users\\Ryoma Ikeda\\.nuget\\packages\\": {},
+    "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\CS.csproj",
+      "projectUniqueName": "L:\\Program Files\\Cygwin64\\home\\Ryoma Ikeda\\demo\\Hack_U\\Hack_U\\CS.csproj",
       "projectName": "CS",
-      "projectPath": "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\CS.csproj",
-      "packagesPath": "C:\\Users\\serit\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\obj\\",
+      "projectPath": "L:\\Program Files\\Cygwin64\\home\\Ryoma Ikeda\\demo\\Hack_U\\Hack_U\\CS.csproj",
+      "packagesPath": "C:\\Users\\Ryoma Ikeda\\.nuget\\packages\\",
+      "outputPath": "L:\\Program Files\\Cygwin64\\home\\Ryoma Ikeda\\demo\\Hack_U\\Hack_U\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\serit\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Ryoma Ikeda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0-windows10.0.19041.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1057,16 +1064,8 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "キャッシュ ファイルの読み取りの問題 C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  }
 }

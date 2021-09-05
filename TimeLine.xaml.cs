@@ -38,7 +38,7 @@ public class class_info　//作ったけどどう使うか分かってない
     public string Sat_classURL { get; set; }
 }
 
-namespace Test3
+namespace CS
 {
     /// <summary>
     /// TimeLine.xaml の相互作用ロジック
