@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -151,6 +151,8 @@ namespace CS
         void edit_Checked(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("時間割を開きます");
+            var win = new TimeLine();
+            win.Show();
         }
 
 

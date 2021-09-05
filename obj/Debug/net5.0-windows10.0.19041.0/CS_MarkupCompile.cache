@@ -4,11 +4,12 @@
 winexe
 C#
 .cs
-C:\Users\moeha\hack_U_2021_2\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\
+L:\Program Files\Cygwin64\home\Ryoma Ikeda\demo\Hack_U\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\
 CS
 none
 false
 TRACE;DEBUG;NET;NET5_0;NETCOREAPP
+<<<<<<< HEAD
 <<<<<<< HEAD
 C:\Users\sekai\Documents\Hack_U2021\CS\App.xaml
 2-650206438
@@ -24,6 +25,14 @@ C:\Users\moeha\hack_U_2021_2\Hack_U\App.xaml
 197615184098
 MainWindow.xaml;
 >>>>>>> f014cd2cfd0191823d324b425ee834b230863c6d
+=======
+L:\Program Files\Cygwin64\home\Ryoma Ikeda\demo\Hack_U\Hack_U\App.xaml
+2-650206438
+
+4-1354347974
+197-12756628
+MainWindow.xaml;TimeLine.xaml;
+>>>>>>> 8a826dd5d8e4e2bf670b0823f6954fc4d582d845
 
 True
 
