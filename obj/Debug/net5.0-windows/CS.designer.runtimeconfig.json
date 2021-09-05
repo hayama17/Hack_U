@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+{
+  "runtimeOptions": {
+    "tfm": "net5.0",
+    "framework": {
+      "name": "Microsoft.WindowsDesktop.App",
+      "version": "5.0.0"
+    },
+    "additionalProbingPaths": [
+      "C:\\Users\\moeha\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\moeha\\.nuget\\packages"
+    ],
+    "configProperties": {
+      "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
+    }
+  }
+=======
 {
   "runtimeOptions": {
     "tfm": "net5.0",
@@ -13,4 +30,5 @@
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true
     }
   }
+>>>>>>> 11fc7b74a2c783a8e1e259ca42e66861af4ca695
 }
