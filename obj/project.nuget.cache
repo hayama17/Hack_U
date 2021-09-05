@@ -1,8 +1,18 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "13QJlDPJUH4z02ynE13Z4qtTQIjWid3PHnpo6Fd+MTxnOIY2LTumCVXKMy591s1X3nHwFpu+XlgufbupoQKbSQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\CS.csproj",
   "expectedPackageFiles": [],
+=======
+  "dgSpecHash": "QwgOZA9YPGP9ZDIiMpA2CD73Veod12L7f4ZHJcXys40W961WUffBrLvQj8jL0crIgyImtBE817MXhnBMl1coow==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\CS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sekai\\.nuget\\packages\\modernwpfui\\0.9.4\\modernwpfui.0.9.4.nupkg.sha512",
+    "C:\\Users\\sekai\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.19\\microsoft.windows.sdk.net.ref.10.0.19041.19.nupkg.sha512"
+  ],
+>>>>>>> 147c887c3b8026c7050ce154f928cdfa5906c4fd
   "logs": []
 }
