@@ -13,9 +13,25 @@ tools = pyocr.get_available_tools()
 tool = tools[0]
 
 # OCR対象の画像ファイルを読み込む
-img = Image.open("zoomImage.png")
+img = Image.open("zoomImage2.png")
 img_rgb = img.convert("RGB")
 pixels = img_rgb.load()
+
+# ファイルが送信されたら通知
+def FileNotification():
+    red = 230
+    green = 241
+    blue = 248
+    flag = False
+    for j in range(img_rgb.size[1]):
+        for i in range(img_rgb.size[0]):
+            if (pixels[i, j][0] > red - 5 and pixels[i, j][1] < red + 5):
+                if (pixels[i, j][0] > green - 5 and pixels[i, j][1] < green + 5):
+                    if (pixels[i, j][0] > blue - 5 and pixels[i, j][1] < blue + 5):
+                        flag = True
+    
+    if (flag):
+        print("ファイルが送られました")
 
 # 画像を加工
 def Recolor():
@@ -27,6 +43,8 @@ def Recolor():
                 pixels[i, j] = (255, 255, 255)
             if (pixels[i, j][2] > bluemin):
                 pixels[i, j] = (255, 255, 255)
+
+FileNotification()
 
 Recolor()
 # 画像から文字を読み込む
