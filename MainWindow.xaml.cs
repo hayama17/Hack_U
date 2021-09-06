@@ -11,6 +11,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -21,6 +22,7 @@ using System.Windows.Shapes;
 // using System.Text.Json.Serialization;
 // using System.IO;
 using Microsoft.Win32;
+using Windows.Services.Maps;
 
 namespace CS
 {
@@ -29,6 +31,15 @@ namespace CS
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        private List<string> Py_PATH = new();
+        private string[] daylist = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+        public Dictionary<string, string> Day_Dic { get; set; }
+        public Dictionary<string, string> Period_Dic { get; set; }
+
+        public TimeTable timeTable;
+
+
         //以下授業クラス"Meeting", 日クラス"Day", 時間割クラス"TimeTable"
         public class Meeting
         {   //授業クラス
@@ -76,6 +87,7 @@ namespace CS
 
         public class TimeTable
         {   //時間割クラス
+
             [JsonPropertyName("Monday")]
             public Day Monday { get; set; }
 
@@ -105,22 +117,33 @@ namespace CS
                 this.Saturday = new Day();
             }
 
+            public void Path_to_Class(string path)
+            {
+                StreamReader JsonRead = new(path, Encoding.GetEncoding("UTF-8"));//json読み込んで
+                string Json_Str = JsonRead.ReadToEnd();//stringに全文保持して
+
+                this.Monday = JsonSerializer.Deserialize<TimeTable>(Json_Str).Monday;//timeTableに突っ込む
+                this.Tuesday = JsonSerializer.Deserialize<TimeTable>(Json_Str).Tuesday;//timeTableに突っ込む
+                this.Wednesday = JsonSerializer.Deserialize<TimeTable>(Json_Str).Wednesday;//timeTableに突っ込む
+                this.Thursday = JsonSerializer.Deserialize<TimeTable>(Json_Str).Thursday;//timeTableに突っ込む
+                this.Friday = JsonSerializer.Deserialize<TimeTable>(Json_Str).Friday;//timeTableに突っ込む
+                this.Saturday = JsonSerializer.Deserialize<TimeTable>(Json_Str).Saturday;//timeTableに突っ込む
+
+
+            }
+
+
         }
         //以上、Jsonを扱うためのクラス群
 
 
-        
-        // string Json_PATH="test.json";//jsonファイルの場所
-        // StreamReader JsonRead=new(Json_PATH,Encoding.GetEncoding("UTF-8"));//json読み込んで
-        // string Json_Str=JsonREAD.ReadToEnd();//stringに全文保持して
 
-        // TimeTable timeTable=JsonSerializer.Deserialize<TimeTable>(json_str);//timeTableに突っ込む
-        
-        
+        public string Json_PATH = "test.json";//jsonファイルの場所
 
-        private List<string> Py_PATH = new();
-        public Dictionary<string, string> Day_Dic { get; set; }
-        public Dictionary<string, string> Period_Dic { get; set; }
+
+
+
+
         public MainWindow()
         {
 
@@ -144,8 +167,9 @@ namespace CS
             };
 
 
-            InitializeComponent();
 
+            InitializeComponent();
+            timeTable = new();
 
             DataContext = this;
 
@@ -200,7 +224,11 @@ namespace CS
                 using (Stream fileStream = openFileDialog.OpenFile())
                 {
                     StreamReader sr = new StreamReader(fileStream, true);
-                    // webhook.Text = sr.ReadToEnd(); 中身を表示する
+                    timeTable.Path_to_Class(openFileDialog.FileName);
+                    // StreamReader JsonRead = new(openFileDialog.FileName, Encoding.GetEncoding("UTF-8"));//json読み込んで
+                    // string Json_Str = JsonRead.ReadToEnd();//stringに全文保持して
+                    // timeTable = JsonSerializer.Deserialize<TimeTable>(Json_Str);//timeTableに突っ込む
+
                 }
             }
 
@@ -213,11 +241,11 @@ namespace CS
             bool? result = saveFileDialog.ShowDialog();
             if (result == true)
             {
-                
+                string jsonString = JsonSerializer.Serialize(timeTable);
                 using Stream fileStream = saveFileDialog.OpenFile();
                 using StreamWriter sr = new StreamWriter(fileStream);
-                { 
-                    sr.Write(zoomID.Text); //zoomIDの値を指定したファイルに書き込む
+                {
+                    sr.Write(jsonString); //zoomIDの値を指定したファイルに書き込む
                 }
             }
 
