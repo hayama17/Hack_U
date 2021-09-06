@@ -1,7 +1,0 @@
-*.dll
-*.exe
-*.pdb
-*.baml
-*.resouces
-/bin
-/obj
