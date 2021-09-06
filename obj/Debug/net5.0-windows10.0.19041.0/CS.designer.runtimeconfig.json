@@ -6,8 +6,8 @@
       "version": "5.0.0"
     },
     "additionalProbingPaths": [
-      "C:\\Users\\moeha\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\moeha\\.nuget\\packages"
+      "C:\\Users\\sekai\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\sekai\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

@@ -1,5 +1,5 @@
-.dll
-.exe
-.pdb
-.baml
-.resouces
+*.dll
+*.exe
+*.pdb
+*.baml
+*.resouces

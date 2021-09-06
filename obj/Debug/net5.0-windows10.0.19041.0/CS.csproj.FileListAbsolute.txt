@@ -158,6 +158,9 @@ C:\Users\sekai\Documents\Hack_U2021\CS\obj\Debug\net5.0-windows10.0.19041.0\CS.d
 C:\Users\sekai\Documents\Hack_U2021\CS\obj\Debug\net5.0-windows10.0.19041.0\ref\CS.dll
 C:\Users\sekai\Documents\Hack_U2021\CS\obj\Debug\net5.0-windows10.0.19041.0\CS.pdb
 C:\Users\sekai\Documents\Hack_U2021\CS\obj\Debug\net5.0-windows10.0.19041.0\CS.genruntimeconfig.cache
+<<<<<<< HEAD
+C:\Users\sekai\Documents\Hack_U2021\CS\obj\Debug\net5.0-windows10.0.19041.0\TimeLine.g.cs
+=======
 C:\Users\moeha\hack_U_2021_2\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\CS.csproj.AssemblyReference.cache
 C:\Users\moeha\hack_U_2021_2\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\MainWindow.g.cs
 C:\Users\moeha\hack_U_2021_2\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\App.g.cs
@@ -318,6 +321,7 @@ C:\Users\moeha\hack_U_2021_2\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\CS.Asse
 C:\Users\moeha\hack_U_2021_2\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\CS.csproj.CoreCompileInputs.cache
 C:\Users\moeha\hack_U_2021_2\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\CS.csproj.CopyComplete
 C:\Users\moeha\hack_U_2021_2\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\CS.genruntimeconfig.cache
+>>>>>>> f014cd2cfd0191823d324b425ee834b230863c6d
 L:\Program Files\Cygwin64\home\Ryoma Ikeda\demo\Hack_U\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\CS.csproj.AssemblyReference.cache
 L:\Program Files\Cygwin64\home\Ryoma Ikeda\demo\Hack_U\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\MainWindow.g.cs
 L:\Program Files\Cygwin64\home\Ryoma Ikeda\demo\Hack_U\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\TimeLine.g.cs
@@ -479,6 +483,7 @@ L:\Program Files\Cygwin64\home\Ryoma Ikeda\demo\Hack_U\Hack_U\obj\Debug\net5.0-w
 L:\Program Files\Cygwin64\home\Ryoma Ikeda\demo\Hack_U\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\CS.csproj.CoreCompileInputs.cache
 L:\Program Files\Cygwin64\home\Ryoma Ikeda\demo\Hack_U\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\CS.genruntimeconfig.cache
 L:\Program Files\Cygwin64\home\Ryoma Ikeda\demo\Hack_U\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\ref\CS.dll
+<<<<<<< HEAD
 C:\Users\serit\HackU2021\HackU\Hack_U_CS\Hack_U\bin\Debug\net5.0-windows10.0.19041.0\CS.exe
 C:\Users\serit\HackU2021\HackU\Hack_U_CS\Hack_U\bin\Debug\net5.0-windows10.0.19041.0\CS.deps.json
 C:\Users\serit\HackU2021\HackU\Hack_U_CS\Hack_U\bin\Debug\net5.0-windows10.0.19041.0\CS.runtimeconfig.json
@@ -641,3 +646,7 @@ C:\Users\serit\HackU2021\HackU\Hack_U_CS\Hack_U\obj\Debug\net5.0-windows10.0.190
 C:\Users\serit\HackU2021\HackU\Hack_U_CS\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\ref\CS.dll
 C:\Users\serit\HackU2021\HackU\Hack_U_CS\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\CS.pdb
 C:\Users\serit\HackU2021\HackU\Hack_U_CS\Hack_U\obj\Debug\net5.0-windows10.0.19041.0\CS.genruntimeconfig.cache
+=======
+>>>>>>> 8a826dd5d8e4e2bf670b0823f6954fc4d582d845
+C:\Users\sekai\Documents\Hack_U2021\CS\obj\Debug\net5.0-windows10.0.19041.0\TimeLine.baml
+>>>>>>> c2f8508957ea83264e2bb234e6acc3ff94e2c3f6
