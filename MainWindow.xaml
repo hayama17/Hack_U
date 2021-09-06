@@ -27,9 +27,11 @@
                 <MenuItem Header="ファイル" RenderTransformOrigin="1.889,0.503">
                     <MenuItem x:Name="インポート" Header="インポート" Click="import_Checked"/>
                     <MenuItem x:Name="エクスポート" Header="エクスポート" Click="export_Checked"/>
-
                 </MenuItem>
-                <MenuItem Header="編集" Click="edit_Checked"/>
+                <MenuItem Header="編集" RenderTransformOrigin="1.889,0.503">
+                    <MenuItem x:Name="TimeLine" Header="TimeLine" Click="TimeLine_Checked"/>
+                    <MenuItem x:Name="Web_Hook_menu" Header="Web_Hook_menu" Click="Web_Hook_menu_Checked"/>
+                </MenuItem>
             </Menu>
             <CheckBox x:Name="CH2" Content="自動起動" VerticalAlignment="Top" Height="32" Margin="17,103,0,0" Checked="CH2CheckBox_Checked" Unchecked="CH2CheckBox_Unchecked" Width="120" Grid.Column="1" Grid.ColumnSpan="2"/>
             <Button x:Name="open_bt" Content="開く" VerticalAlignment="Bottom" Height="33" Click="button_clicked" Width="74" Margin="31,0,0,0" Grid.Column="3" Grid.ColumnSpan="3" Background="#FFEACF20" Foreground="WhiteSmoke"/>
