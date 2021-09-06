@@ -35,6 +35,7 @@ namespace CS
 
         private List<string> Py_PATH = new();//pythonのスクリプトのパスのリスト
         private string[] daylist = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+        public int[,] period_times = new int [,] { {9,0},{10,50},{13,20},{15,10},{17,0}};
         public Dictionary<string, string> Day_Dic { get; set; }//コンボボックスの曜日の要素
         public Dictionary<string, string> Period_Dic { get; set; }//コンボボックスの何限の要素
 
@@ -162,19 +163,32 @@ namespace CS
         }
         //以上、Jsonを扱うためのクラス群
 
-        
+
         private void Method1(object state)
         {
             Dispatcher.Invoke((Action)(() =>
-            {            
+            {
                 open_bt.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
             }));
 
         }
 
         static Timer timer1;
+
+        void Time_scadule(int hour, int min)
+        {
+            var time1 = DateTime.Today + new TimeSpan(hour, min, 0) - DateTime.Now;
+
+            // 8 時過ぎていれば次の日の 8 時にする
+            if (time1 < TimeSpan.Zero) time1 += new TimeSpan(24, 0, 0);
+
+            // 時間になったらそこから 24 時間毎に Method1 を呼び出すようタイマーをセット
+            timer1 = new Timer(Method1, null, time1, new TimeSpan(24, 0, 0));
+        }
+
+
         public MainWindow()
-        {   
+        {
 
             Day_Dic = new Dictionary<string, string>()
                {
@@ -183,7 +197,7 @@ namespace CS
                    {"Wednesday","水曜日" },
                    {"Thursday","木曜日" },
                    {"Friday","金曜日" },
-                   { "Saturday","土曜日" }
+                   {"Saturday","土曜日" }
                 };
 
             Period_Dic = new()
@@ -196,25 +210,17 @@ namespace CS
             };
 
             timeTable = new();
-            
+
             InitializeComponent();
 
             //最初の画面を作成
             DataContext = this;
             CBOX1.SelectedIndex = 0;//コンボボックスの初期値
             CBOX2.SelectedIndex = 0;//コンボボックスの初期値 
-            var time1 = DateTime.Today + new TimeSpan(21, 47, 0) - DateTime.Now;
 
-            // 8 時過ぎていれば次の日の 8 時にする
-            if (time1 < TimeSpan.Zero) time1 += new TimeSpan(24, 0, 0);
-
-            // 時間になったらそこから 24 時間毎に Method1 を呼び出すようタイマーをセット
-            timer1 = new Timer(Method1, null, time1, new TimeSpan(24, 0, 0));
-
-
-
-
-
+            for(int i = 0 ;i<5;i++){
+                Time_scadule(period_times[i,0],period_times[i,1]);//スケジューラー5限分生成
+            }
 
         }
 
@@ -518,7 +524,7 @@ namespace CS
         }
 
 
-        
+
 
 
 
