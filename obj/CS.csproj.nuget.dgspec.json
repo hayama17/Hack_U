@@ -1,0 +1,84 @@
+{
+  "format": 1,
+  "restore": {
+    "L:\\Program Files\\Cygwin64\\home\\Ryoma Ikeda\\demo\\Hack_U\\Hack_U\\CS.csproj": {}
+  },
+  "projects": {
+    "L:\\Program Files\\Cygwin64\\home\\Ryoma Ikeda\\demo\\Hack_U\\Hack_U\\CS.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "L:\\Program Files\\Cygwin64\\home\\Ryoma Ikeda\\demo\\Hack_U\\Hack_U\\CS.csproj",
+        "projectName": "CS",
+        "projectPath": "L:\\Program Files\\Cygwin64\\home\\Ryoma Ikeda\\demo\\Hack_U\\Hack_U\\CS.csproj",
+        "packagesPath": "C:\\Users\\Ryoma Ikeda\\.nuget\\packages\\",
+        "outputPath": "L:\\Program Files\\Cygwin64\\home\\Ryoma Ikeda\\demo\\Hack_U\\Hack_U\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Ryoma Ikeda\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0-windows10.0.19041.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0-windows10.0.19041": {
+            "targetAlias": "net5.0-windows10.0.19041.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0-windows10.0.19041": {
+          "targetAlias": "net5.0-windows10.0.19041.0",
+          "dependencies": {
+            "ModernWpfUI": {
+              "target": "Package",
+              "version": "[0.9.4, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.Windows.SDK.NET.Ref",
+              "version": "[10.0.19041.19, 10.0.19041.19]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.Windows.SDK.NET.Ref": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

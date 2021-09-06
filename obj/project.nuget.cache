@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "/TxpDdTTyzy4OuFufKso46zXTrJHuyDLsJHDhmbiTnKeQVIy5fIwvn5qqa5PzboT1ywOUutOQrG0mNNVNv+B5w==",
+  "success": true,
+  "projectFilePath": "L:\\Program Files\\Cygwin64\\home\\Ryoma Ikeda\\demo\\Hack_U\\Hack_U\\CS.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Ryoma Ikeda\\.nuget\\packages\\modernwpfui\\0.9.4\\modernwpfui.0.9.4.nupkg.sha512",
+    "C:\\Users\\Ryoma Ikeda\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.19041.19\\microsoft.windows.sdk.net.ref.10.0.19041.19.nupkg.sha512"
+  ],
+  "logs": []
+}
