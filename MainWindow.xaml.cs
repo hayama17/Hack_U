@@ -293,7 +293,7 @@ namespace CS
             }
 
         }
-        void edit_Checked(object sender, RoutedEventArgs e)
+        void TimeLine_Checked(object sender, RoutedEventArgs e)
         {
             System.Windows.MessageBox.Show("時間割を開きます");
             var win = new TimeLine();
@@ -301,7 +301,10 @@ namespace CS
 
         }
 
+        void Web_Hook_menu_Checked(object sender, RoutedEventArgs e)
+        {
 
+        }
         void button_clicked(object sender, RoutedEventArgs e)
         {
             if (CH1.IsChecked.Value)
