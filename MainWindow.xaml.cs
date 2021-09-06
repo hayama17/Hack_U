@@ -16,10 +16,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using System.Diagnostics;
-using System.Text.Json;
-using System.Text.Json.Serialization;
-using System.IO;
+// using System.Diagnostics;
+// using System.Text.Json;
+// using System.Text.Json.Serialization;
+// using System.IO;
 using Microsoft.Win32;
 
 namespace CS
@@ -110,11 +110,11 @@ namespace CS
 
 
         
-        string Json_PATH="test.json";//jsonファイルの場所
-        StreamReader JsonRead=new(Json_PATH,Encoding.GetEncoding("UTF-8"));//json読み込んで
-        string Json_Str=JsonREAD.ReadToEnd();//stringに全文保持して
+        // string Json_PATH="test.json";//jsonファイルの場所
+        // StreamReader JsonRead=new(Json_PATH,Encoding.GetEncoding("UTF-8"));//json読み込んで
+        // string Json_Str=JsonREAD.ReadToEnd();//stringに全文保持して
 
-        TimeTable timeTable=JsonSerializer.Deserialize<TimeTable>(json_str);//timeTableに突っ込む
+        // TimeTable timeTable=JsonSerializer.Deserialize<TimeTable>(json_str);//timeTableに突っ込む
         
         
 
