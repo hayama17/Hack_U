@@ -14,6 +14,7 @@ tool = tools[0]
 
 # OCR対象の画像ファイルを読み込む
 img = Image.open("zoomImage2.png")
+print(type(img))
 img_rgb = img.convert("RGB")
 pixels = img_rgb.load()
 
