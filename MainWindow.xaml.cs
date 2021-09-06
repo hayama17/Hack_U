@@ -102,12 +102,42 @@ namespace CS
 
 
 
-
         private List<string> Py_PATH = new();
+        public Dictionary<string, string> Day_Dic { get; set; }
+        public Dictionary<string, string> Period_Dic { get; set; }
         public MainWindow()
         {
+
+            Day_Dic = new Dictionary<string, string>()
+               {
+                   {"Monday","月曜日" },
+                   {"Tuesday","火曜日" },
+                   {"Wednesday","水曜日" },
+                   {"Thursday","木曜日" },
+                   {"Friday","金曜日" },
+                   { "Saturday","土曜日" }
+                };
+
+            Period_Dic = new()
+            {
+                { "First","1限" },
+                { "Second","2限" },
+                { "Third","3限" },
+                { "Fourth","4限" },
+                { "Fifth","5限" }
+            };
+
+
             InitializeComponent();
+            
+
+            DataContext = this;
+
         }
+        
+        
+        
+       
         void CH1CheckBox_Checked(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("チェックされました");
@@ -153,8 +183,9 @@ namespace CS
             MessageBox.Show("時間割を開きます");
             var win = new TimeLine();
             win.Show();
+            
         }
-
+        
 
         void button_clicked(object sender, RoutedEventArgs e)
         {
