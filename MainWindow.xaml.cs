@@ -265,7 +265,11 @@ namespace CS
                 {
                     StreamReader sr = new StreamReader(fileStream, true);
                     timeTable.Path_to_Class(Json_PATH);
+
                 }
+                d=CBOX1.SelectedIndex;
+                t=CBOX2.SelectedIndex;
+                setMeeting(d,t);
             }
 
 
@@ -314,7 +318,7 @@ namespace CS
                     {
                         UseShellExecute = false,//呼び出し時にシェル使うか
                         RedirectStandardOutput = false,//C#の出力にリダイレクトするか
-                        Arguments = Py_PATH[i]
+                        Arguments = Py_PATH[i]+" "+useMeetId+" "+useMeetPwd
 
                     }
                 };
@@ -333,13 +337,184 @@ namespace CS
 
         }
 
+        public string useMeetId,useMeetPwd;//これ使って
+        public void setMeeting(int D,int T)//何曜日何限がセットされてるかのチェック
+        {
+            if(D==0)
+            {
+                if(T==0)
+                {
+                    useMeetId=timeTable.Monday.First.Zoom_id;
+                    useMeetPwd=timeTable.Monday.First.Zoom_pwd;
+                }
+                else if(T==1)
+                {
+                    useMeetId=timeTable.Monday.Second.Zoom_id;
+                    useMeetPwd=timeTable.Monday.Second.Zoom_pwd;
+                }
+                else if(T==2)
+                {
+                    useMeetId=timeTable.Monday.Third.Zoom_id;
+                    useMeetPwd=timeTable.Monday.Third.Zoom_pwd;
+                }
+                else if(T==3)
+                {
+                    useMeetId=timeTable.Monday.Fourth.Zoom_id;
+                    useMeetPwd=timeTable.Monday.Fourth.Zoom_pwd;
+                }
+                else if(T==4)
+                {
+                    useMeetId=timeTable.Monday.Fifth.Zoom_id;
+                    useMeetPwd=timeTable.Monday.Fourth.Zoom_pwd;
+                }
+            }else if(D==1){
+                 if(T==0)
+                {
+                    useMeetId=timeTable.Tuesday.First.Zoom_id;
+                    useMeetPwd=timeTable.Tuesday.First.Zoom_pwd;
+                }
+                else if(T==1)
+                {
+                    useMeetId=timeTable.Tuesday.Second.Zoom_id;
+                    useMeetPwd=timeTable.Tuesday.Second.Zoom_pwd;
+                }
+                else if(T==2)
+                {
+                    useMeetId=timeTable.Tuesday.Third.Zoom_id;
+                    useMeetPwd=timeTable.Tuesday.Third.Zoom_pwd;
+                }
+                else if(T==3)
+                {
+                    useMeetId=timeTable.Tuesday.Fourth.Zoom_id;
+                    useMeetPwd=timeTable.Tuesday.Fourth.Zoom_pwd;
+                }
+                else if(T==4)
+                {
+                    useMeetId=timeTable.Tuesday.Fifth.Zoom_id;
+                    useMeetPwd=timeTable.Tuesday.Fourth.Zoom_pwd;
+                }
+            }else if(D==2){
+                 if(T==0)
+                {
+                    useMeetId=timeTable.Wednesday.First.Zoom_id;
+                    useMeetPwd=timeTable.Wednesday.First.Zoom_pwd;
+                }
+                else if(T==1)
+                {
+                    useMeetId=timeTable.Wednesday.Second.Zoom_id;
+                    useMeetPwd=timeTable.Wednesday.Second.Zoom_pwd;
+                }
+                else if(T==2)
+                {
+                    useMeetId=timeTable.Wednesday.Third.Zoom_id;
+                    useMeetPwd=timeTable.Wednesday.Third.Zoom_pwd;
+                }
+                else if(T==3)
+                {
+                    useMeetId=timeTable.Wednesday.Fourth.Zoom_id;
+                    useMeetPwd=timeTable.Wednesday.Fourth.Zoom_pwd;
+                }
+                else if(T==4)
+                {
+                    useMeetId=timeTable.Wednesday.Fifth.Zoom_id;
+                    useMeetPwd=timeTable.Wednesday.Fourth.Zoom_pwd;
+                }
+            }else if(D==3){
+                 if(T==0)
+                {
+                    useMeetId=timeTable.Thursday.First.Zoom_id;
+                    useMeetPwd=timeTable.Thursday.First.Zoom_pwd;
+                }
+                else if(T==1)
+                {
+                    useMeetId=timeTable.Thursday.Second.Zoom_id;
+                    useMeetPwd=timeTable.Thursday.Second.Zoom_pwd;
+                }
+                else if(T==2)
+                {
+                    useMeetId=timeTable.Thursday.Third.Zoom_id;
+                    useMeetPwd=timeTable.Thursday.Third.Zoom_pwd;
+                }
+                else if(T==3)
+                {
+                    useMeetId=timeTable.Thursday.Fourth.Zoom_id;
+                    useMeetPwd=timeTable.Thursday.Fourth.Zoom_pwd;
+                }
+                else if(T==4)
+                {
+                    useMeetId=timeTable.Thursday.Fifth.Zoom_id;
+                    useMeetPwd=timeTable.Thursday.Fourth.Zoom_pwd;
+                }
+            }else if(D==4)
+            {
+                 if(T==0)
+                {
+                    useMeetId=timeTable.Friday.First.Zoom_id;
+                    useMeetPwd=timeTable.Friday.First.Zoom_pwd;
+                }
+                else if(T==1)
+                {
+                    useMeetId=timeTable.Friday.Second.Zoom_id;
+                    useMeetPwd=timeTable.Friday.Second.Zoom_pwd;
+                }
+                else if(T==2)
+                {
+                    useMeetId=timeTable.Friday.Third.Zoom_id;
+                    useMeetPwd=timeTable.Friday.Third.Zoom_pwd;
+                }
+                else if(T==3)
+                {
+                    useMeetId=timeTable.Friday.Fourth.Zoom_id;
+                    useMeetPwd=timeTable.Friday.Fourth.Zoom_pwd;
+                }
+                else if(T==4)
+                {
+                    useMeetId=timeTable.Friday.Fifth.Zoom_id;
+                    useMeetPwd=timeTable.Friday.Fourth.Zoom_pwd;
+                }
+            }else if(D==5)
+            {
+                 if(T==0)
+                {
+                    useMeetId=timeTable.Saturday.First.Zoom_id;
+                    useMeetPwd=timeTable.Saturday.First.Zoom_pwd;
+                }
+                else if(T==1)
+                {
+                    useMeetId=timeTable.Saturday.Second.Zoom_id;
+                    useMeetPwd=timeTable.Saturday.Second.Zoom_pwd;
+                }
+                else if(T==2)
+                {
+                    useMeetId=timeTable.Saturday.Third.Zoom_id;
+                    useMeetPwd=timeTable.Saturday.Third.Zoom_pwd;
+                }
+                else if(T==3)
+                {
+                    useMeetId=timeTable.Saturday.Fourth.Zoom_id;
+                    useMeetPwd=timeTable.Saturday.Fourth.Zoom_pwd;
+                }
+                else if(T==4)
+                {
+                    useMeetId=timeTable.Saturday.Fifth.Zoom_id;
+                    useMeetPwd=timeTable.Saturday.Fourth.Zoom_pwd;
+                }
+            }
+            System.Windows.MessageBox.Show(D.ToString()+","+T.ToString());
+
+        }
+
+        public int d,t;
         private void CBOX1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-             
+            d=CBOX1.SelectedIndex;
+            setMeeting(d,t);
+
         }
         private void CBOX2_SelectionChanged(object sender, SelectionChangedEventArgs e)//時限
         {
-             
+            t=CBOX2.SelectedIndex;
+            setMeeting(d,t);
         }
 
 
