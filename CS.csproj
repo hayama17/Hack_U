@@ -11,4 +11,10 @@
     <PackageReference Include="ModernWpfUI" Version="0.9.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Page Update="Web_Hook_menu.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+  </ItemGroup>
+
 </Project>

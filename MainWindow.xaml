@@ -30,7 +30,6 @@
                 </MenuItem>
                 <MenuItem Header="編集" RenderTransformOrigin="1.889,0.503">
                     <MenuItem x:Name="TimeLine" Header="TimeLine" Click="TimeLine_Checked"/>
-                    <MenuItem x:Name="Web_Hook_menu" Header="Web_Hook_menu" Click="Web_Hook_menu_Checked"/>
                 </MenuItem>
             </Menu>
             <CheckBox x:Name="CH2" Content="自動起動" VerticalAlignment="Top" Height="32" Margin="17,103,0,0" Checked="CH2CheckBox_Checked" Unchecked="CH2CheckBox_Unchecked" Width="120" Grid.Column="1" Grid.ColumnSpan="2"/>
@@ -41,7 +40,7 @@
             <TextBox x:Name="zoomID" Grid.Column="2" HorizontalAlignment="Left" Margin="102,105,0,0" Text="zoomID" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="16" TextChanged="TextBox_TextChanged"/>
             <TextBox x:Name="zoompass" Grid.Column="2" HorizontalAlignment="Left" Margin="102,143,0,0" Text="zoompass" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="15"/>
             <CheckBox x:Name="CH1" Content="Webhook" VerticalAlignment="Top" Height="32" Margin="17,47,0,0" Checked="CH1CheckBox_Checked" Unchecked="CH1CheckBox_Unchecked" Width="120" Grid.Column="1" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="webhook" Grid.Column="2" HorizontalAlignment="Center" Margin="0,47,0,0" Text="送信するテキスト" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
+            <TextBox x:Name="webhook" Grid.Column="2" HorizontalAlignment="Center" Margin="0,47,0,0" Text="送信するURL" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" TextChanged="webhook_TextChanged"/>
             <ComboBox x:Name="CBOX1" Grid.Column="1" Margin="23,264,0,0" Width="136"  ItemsSource="{Binding Day_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" Grid.ColumnSpan="2" SelectionChanged="CBOX1_SelectionChanged">
             </ComboBox>
             <ComboBox x:Name="CBOX2" Grid.Column="2" Margin="0,264,79,0" Width="138" ItemsSource="{Binding Period_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" HorizontalAlignment="Right" SelectionChanged="CBOX2_SelectionChanged"/>

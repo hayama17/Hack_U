@@ -35,7 +35,7 @@ namespace CS
 
         private List<string> Py_PATH = new();//pythonのスクリプトのパスのリスト
         private string[] daylist = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-        public int[,] period_times = new int [,] { {9,0},{10,50},{13,20},{15,10},{17,0}};
+        public int[,] period_times = new int[,] { { 9, 0 }, { 10, 50 }, { 13, 20 }, { 15, 10 }, { 17, 0 } };
         public Dictionary<string, string> Day_Dic { get; set; }//コンボボックスの曜日の要素
         public Dictionary<string, string> Period_Dic { get; set; }//コンボボックスの何限の要素
 
@@ -105,9 +105,6 @@ namespace CS
         {
             [JsonPropertyName("Webhook_url")]
             public string Webhook_url { get; set; }
-
-            [JsonPropertyName("Webhook_text")]
-            public string Webhook_text { get; set; }
         }
         public class TimeTable
         {   //時間割クラス
@@ -218,8 +215,9 @@ namespace CS
             CBOX1.SelectedIndex = 0;//コンボボックスの初期値
             CBOX2.SelectedIndex = 0;//コンボボックスの初期値 
 
-            for(int i = 0 ;i<5;i++){
-                Time_scadule(period_times[i,0],period_times[i,1]);//スケジューラー5限分生成
+            for (int i = 0; i < 5; i++)
+            {
+                Time_scadule(period_times[i, 0], period_times[i, 1]);//スケジューラー5限分生成
             }
 
         }
@@ -229,35 +227,35 @@ namespace CS
 
         void CH1CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("チェックされました");
+
         }
         void CH2CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("自動起動をオンにしました");
+
         }
         void CH3CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("議事録をオンにしました");
+
         }
         void CH4CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("チャット監視をオンにしました");
+
         }
         void CH1CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("チェック外れました");
+
         }
         void CH3CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("自動起動をオフにしました");
+
         }
         void CH4CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("議事録をオフにしました");
+
         }
         void CH2CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("チャット監視をオフにしました");
+
         }
         void import_Checked(object sender, RoutedEventArgs e)
         {
@@ -273,9 +271,9 @@ namespace CS
                     timeTable.Path_to_Class(Json_PATH);
 
                 }
-                d=CBOX1.SelectedIndex;
-                t=CBOX2.SelectedIndex;
-                setMeeting(d,t);
+                d = CBOX1.SelectedIndex;
+                t = CBOX2.SelectedIndex;
+                setMeeting(d, t);
             }
 
 
@@ -299,35 +297,43 @@ namespace CS
         }
         void TimeLine_Checked(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("時間割を開きます");
+
             var win = new TimeLine();
             win.Show();
 
         }
 
-        void Web_Hook_menu_Checked(object sender, RoutedEventArgs e)
-        {
 
-        }
         void button_clicked(object sender, RoutedEventArgs e)
         {
             if (CH1.IsChecked.Value)
             {
-                Py_PATH.Add("Python/Auto_zoom_start.py");
-            }
-            if (CH2.IsChecked.Value)
-            {
                 Py_PATH.Add("Python/webhook.py");
-            }
-            for (int i = 0; i < Py_PATH.Count; i++)
-            {
                 var myProcess = new Process
                 {
                     StartInfo = new ProcessStartInfo("python.exe")
                     {
                         UseShellExecute = false,//呼び出し時にシェル使うか
                         RedirectStandardOutput = false,//C#の出力にリダイレクトするか
-                        Arguments = Py_PATH[i]+" "+useMeetId+" "+useMeetPwd
+                        Arguments = "Python/webhook.py" +" " + timeTable.Webhook.Webhook_url + " " + "MainWindowから"
+                    }
+                };
+                myProcess.Start();
+                myProcess.WaitForExit();
+                myProcess.Close();
+
+
+            }
+            if (CH2.IsChecked.Value)
+            {
+    
+                var myProcess = new Process
+                {
+                    StartInfo = new ProcessStartInfo("python.exe")
+                    {
+                        UseShellExecute = false,//呼び出し時にシェル使うか
+                        RedirectStandardOutput = false,//C#の出力にリダイレクトするか
+                        Arguments = "Python/Auto_zoom_start.py"+ " " + useMeetId + " " + useMeetPwd
 
                     }
                 };
@@ -337,8 +343,6 @@ namespace CS
                 myProcess.Close();
             }
             //MessageBox.Show("ボタンが押されました");
-
-            Py_PATH.Clear();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -346,184 +350,198 @@ namespace CS
 
         }
 
-        public string useMeetId,useMeetPwd;//これ使って
-        public void setMeeting(int D,int T)//何曜日何限がセットされてるかのチェック
+        public string useMeetId, useMeetPwd;//これ使って
+        public void setMeeting(int D, int T)//何曜日何限がセットされてるかのチェック1
         {
-            if(D==0)
+            if (D == 0)
             {
-                if(T==0)
+                if (T == 0)
                 {
-                    useMeetId=timeTable.Monday.First.Zoom_id;
-                    useMeetPwd=timeTable.Monday.First.Zoom_pwd;
+                    useMeetId = timeTable.Monday.First.Zoom_id;
+                    useMeetPwd = timeTable.Monday.First.Zoom_pwd;
                 }
-                else if(T==1)
+                else if (T == 1)
                 {
-                    useMeetId=timeTable.Monday.Second.Zoom_id;
-                    useMeetPwd=timeTable.Monday.Second.Zoom_pwd;
+                    useMeetId = timeTable.Monday.Second.Zoom_id;
+                    useMeetPwd = timeTable.Monday.Second.Zoom_pwd;
                 }
-                else if(T==2)
+                else if (T == 2)
                 {
-                    useMeetId=timeTable.Monday.Third.Zoom_id;
-                    useMeetPwd=timeTable.Monday.Third.Zoom_pwd;
+                    useMeetId = timeTable.Monday.Third.Zoom_id;
+                    useMeetPwd = timeTable.Monday.Third.Zoom_pwd;
                 }
-                else if(T==3)
+                else if (T == 3)
                 {
-                    useMeetId=timeTable.Monday.Fourth.Zoom_id;
-                    useMeetPwd=timeTable.Monday.Fourth.Zoom_pwd;
+                    useMeetId = timeTable.Monday.Fourth.Zoom_id;
+                    useMeetPwd = timeTable.Monday.Fourth.Zoom_pwd;
                 }
-                else if(T==4)
+                else if (T == 4)
                 {
-                    useMeetId=timeTable.Monday.Fifth.Zoom_id;
-                    useMeetPwd=timeTable.Monday.Fourth.Zoom_pwd;
-                }
-            }else if(D==1){
-                 if(T==0)
-                {
-                    useMeetId=timeTable.Tuesday.First.Zoom_id;
-                    useMeetPwd=timeTable.Tuesday.First.Zoom_pwd;
-                }
-                else if(T==1)
-                {
-                    useMeetId=timeTable.Tuesday.Second.Zoom_id;
-                    useMeetPwd=timeTable.Tuesday.Second.Zoom_pwd;
-                }
-                else if(T==2)
-                {
-                    useMeetId=timeTable.Tuesday.Third.Zoom_id;
-                    useMeetPwd=timeTable.Tuesday.Third.Zoom_pwd;
-                }
-                else if(T==3)
-                {
-                    useMeetId=timeTable.Tuesday.Fourth.Zoom_id;
-                    useMeetPwd=timeTable.Tuesday.Fourth.Zoom_pwd;
-                }
-                else if(T==4)
-                {
-                    useMeetId=timeTable.Tuesday.Fifth.Zoom_id;
-                    useMeetPwd=timeTable.Tuesday.Fourth.Zoom_pwd;
-                }
-            }else if(D==2){
-                 if(T==0)
-                {
-                    useMeetId=timeTable.Wednesday.First.Zoom_id;
-                    useMeetPwd=timeTable.Wednesday.First.Zoom_pwd;
-                }
-                else if(T==1)
-                {
-                    useMeetId=timeTable.Wednesday.Second.Zoom_id;
-                    useMeetPwd=timeTable.Wednesday.Second.Zoom_pwd;
-                }
-                else if(T==2)
-                {
-                    useMeetId=timeTable.Wednesday.Third.Zoom_id;
-                    useMeetPwd=timeTable.Wednesday.Third.Zoom_pwd;
-                }
-                else if(T==3)
-                {
-                    useMeetId=timeTable.Wednesday.Fourth.Zoom_id;
-                    useMeetPwd=timeTable.Wednesday.Fourth.Zoom_pwd;
-                }
-                else if(T==4)
-                {
-                    useMeetId=timeTable.Wednesday.Fifth.Zoom_id;
-                    useMeetPwd=timeTable.Wednesday.Fourth.Zoom_pwd;
-                }
-            }else if(D==3){
-                 if(T==0)
-                {
-                    useMeetId=timeTable.Thursday.First.Zoom_id;
-                    useMeetPwd=timeTable.Thursday.First.Zoom_pwd;
-                }
-                else if(T==1)
-                {
-                    useMeetId=timeTable.Thursday.Second.Zoom_id;
-                    useMeetPwd=timeTable.Thursday.Second.Zoom_pwd;
-                }
-                else if(T==2)
-                {
-                    useMeetId=timeTable.Thursday.Third.Zoom_id;
-                    useMeetPwd=timeTable.Thursday.Third.Zoom_pwd;
-                }
-                else if(T==3)
-                {
-                    useMeetId=timeTable.Thursday.Fourth.Zoom_id;
-                    useMeetPwd=timeTable.Thursday.Fourth.Zoom_pwd;
-                }
-                else if(T==4)
-                {
-                    useMeetId=timeTable.Thursday.Fifth.Zoom_id;
-                    useMeetPwd=timeTable.Thursday.Fourth.Zoom_pwd;
-                }
-            }else if(D==4)
-            {
-                 if(T==0)
-                {
-                    useMeetId=timeTable.Friday.First.Zoom_id;
-                    useMeetPwd=timeTable.Friday.First.Zoom_pwd;
-                }
-                else if(T==1)
-                {
-                    useMeetId=timeTable.Friday.Second.Zoom_id;
-                    useMeetPwd=timeTable.Friday.Second.Zoom_pwd;
-                }
-                else if(T==2)
-                {
-                    useMeetId=timeTable.Friday.Third.Zoom_id;
-                    useMeetPwd=timeTable.Friday.Third.Zoom_pwd;
-                }
-                else if(T==3)
-                {
-                    useMeetId=timeTable.Friday.Fourth.Zoom_id;
-                    useMeetPwd=timeTable.Friday.Fourth.Zoom_pwd;
-                }
-                else if(T==4)
-                {
-                    useMeetId=timeTable.Friday.Fifth.Zoom_id;
-                    useMeetPwd=timeTable.Friday.Fourth.Zoom_pwd;
-                }
-            }else if(D==5)
-            {
-                 if(T==0)
-                {
-                    useMeetId=timeTable.Saturday.First.Zoom_id;
-                    useMeetPwd=timeTable.Saturday.First.Zoom_pwd;
-                }
-                else if(T==1)
-                {
-                    useMeetId=timeTable.Saturday.Second.Zoom_id;
-                    useMeetPwd=timeTable.Saturday.Second.Zoom_pwd;
-                }
-                else if(T==2)
-                {
-                    useMeetId=timeTable.Saturday.Third.Zoom_id;
-                    useMeetPwd=timeTable.Saturday.Third.Zoom_pwd;
-                }
-                else if(T==3)
-                {
-                    useMeetId=timeTable.Saturday.Fourth.Zoom_id;
-                    useMeetPwd=timeTable.Saturday.Fourth.Zoom_pwd;
-                }
-                else if(T==4)
-                {
-                    useMeetId=timeTable.Saturday.Fifth.Zoom_id;
-                    useMeetPwd=timeTable.Saturday.Fourth.Zoom_pwd;
+                    useMeetId = timeTable.Monday.Fifth.Zoom_id;
+                    useMeetPwd = timeTable.Monday.Fourth.Zoom_pwd;
                 }
             }
-            System.Windows.MessageBox.Show(D.ToString()+","+T.ToString());
+            else if (D == 1)
+            {
+                if (T == 0)
+                {
+                    useMeetId = timeTable.Tuesday.First.Zoom_id;
+                    useMeetPwd = timeTable.Tuesday.First.Zoom_pwd;
+                }
+                else if (T == 1)
+                {
+                    useMeetId = timeTable.Tuesday.Second.Zoom_id;
+                    useMeetPwd = timeTable.Tuesday.Second.Zoom_pwd;
+                }
+                else if (T == 2)
+                {
+                    useMeetId = timeTable.Tuesday.Third.Zoom_id;
+                    useMeetPwd = timeTable.Tuesday.Third.Zoom_pwd;
+                }
+                else if (T == 3)
+                {
+                    useMeetId = timeTable.Tuesday.Fourth.Zoom_id;
+                    useMeetPwd = timeTable.Tuesday.Fourth.Zoom_pwd;
+                }
+                else if (T == 4)
+                {
+                    useMeetId = timeTable.Tuesday.Fifth.Zoom_id;
+                    useMeetPwd = timeTable.Tuesday.Fourth.Zoom_pwd;
+                }
+            }
+            else if (D == 2)
+            {
+                if (T == 0)
+                {
+                    useMeetId = timeTable.Wednesday.First.Zoom_id;
+                    useMeetPwd = timeTable.Wednesday.First.Zoom_pwd;
+                }
+                else if (T == 1)
+                {
+                    useMeetId = timeTable.Wednesday.Second.Zoom_id;
+                    useMeetPwd = timeTable.Wednesday.Second.Zoom_pwd;
+                }
+                else if (T == 2)
+                {
+                    useMeetId = timeTable.Wednesday.Third.Zoom_id;
+                    useMeetPwd = timeTable.Wednesday.Third.Zoom_pwd;
+                }
+                else if (T == 3)
+                {
+                    useMeetId = timeTable.Wednesday.Fourth.Zoom_id;
+                    useMeetPwd = timeTable.Wednesday.Fourth.Zoom_pwd;
+                }
+                else if (T == 4)
+                {
+                    useMeetId = timeTable.Wednesday.Fifth.Zoom_id;
+                    useMeetPwd = timeTable.Wednesday.Fourth.Zoom_pwd;
+                }
+            }
+            else if (D == 3)
+            {
+                if (T == 0)
+                {
+                    useMeetId = timeTable.Thursday.First.Zoom_id;
+                    useMeetPwd = timeTable.Thursday.First.Zoom_pwd;
+                }
+                else if (T == 1)
+                {
+                    useMeetId = timeTable.Thursday.Second.Zoom_id;
+                    useMeetPwd = timeTable.Thursday.Second.Zoom_pwd;
+                }
+                else if (T == 2)
+                {
+                    useMeetId = timeTable.Thursday.Third.Zoom_id;
+                    useMeetPwd = timeTable.Thursday.Third.Zoom_pwd;
+                }
+                else if (T == 3)
+                {
+                    useMeetId = timeTable.Thursday.Fourth.Zoom_id;
+                    useMeetPwd = timeTable.Thursday.Fourth.Zoom_pwd;
+                }
+                else if (T == 4)
+                {
+                    useMeetId = timeTable.Thursday.Fifth.Zoom_id;
+                    useMeetPwd = timeTable.Thursday.Fourth.Zoom_pwd;
+                }
+            }
+            else if (D == 4)
+            {
+                if (T == 0)
+                {
+                    useMeetId = timeTable.Friday.First.Zoom_id;
+                    useMeetPwd = timeTable.Friday.First.Zoom_pwd;
+                }
+                else if (T == 1)
+                {
+                    useMeetId = timeTable.Friday.Second.Zoom_id;
+                    useMeetPwd = timeTable.Friday.Second.Zoom_pwd;
+                }
+                else if (T == 2)
+                {
+                    useMeetId = timeTable.Friday.Third.Zoom_id;
+                    useMeetPwd = timeTable.Friday.Third.Zoom_pwd;
+                }
+                else if (T == 3)
+                {
+                    useMeetId = timeTable.Friday.Fourth.Zoom_id;
+                    useMeetPwd = timeTable.Friday.Fourth.Zoom_pwd;
+                }
+                else if (T == 4)
+                {
+                    useMeetId = timeTable.Friday.Fifth.Zoom_id;
+                    useMeetPwd = timeTable.Friday.Fourth.Zoom_pwd;
+                }
+            }
+            else if (D == 5)
+            {
+                if (T == 0)
+                {
+                    useMeetId = timeTable.Saturday.First.Zoom_id;
+                    useMeetPwd = timeTable.Saturday.First.Zoom_pwd;
+                }
+                else if (T == 1)
+                {
+                    useMeetId = timeTable.Saturday.Second.Zoom_id;
+                    useMeetPwd = timeTable.Saturday.Second.Zoom_pwd;
+                }
+                else if (T == 2)
+                {
+                    useMeetId = timeTable.Saturday.Third.Zoom_id;
+                    useMeetPwd = timeTable.Saturday.Third.Zoom_pwd;
+                }
+                else if (T == 3)
+                {
+                    useMeetId = timeTable.Saturday.Fourth.Zoom_id;
+                    useMeetPwd = timeTable.Saturday.Fourth.Zoom_pwd;
+                }
+                else if (T == 4)
+                {
+                    useMeetId = timeTable.Saturday.Fifth.Zoom_id;
+                    useMeetPwd = timeTable.Saturday.Fourth.Zoom_pwd;
+                }
+            }
+            System.Windows.MessageBox.Show(D.ToString() + "," + T.ToString());
 
         }
 
-        public int d,t;
+        public int d, t;
+
+        private void webhook_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
         private void CBOX1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            d=CBOX1.SelectedIndex;
-            setMeeting(d,t);
+            d = CBOX1.SelectedIndex;
+            setMeeting(d, t);
 
         }
         private void CBOX2_SelectionChanged(object sender, SelectionChangedEventArgs e)//時限
         {
-            t=CBOX2.SelectedIndex;
-            setMeeting(d,t);
+            t = CBOX2.SelectedIndex;
+            setMeeting(d, t);
         }
 
 
