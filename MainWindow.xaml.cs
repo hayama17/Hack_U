@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.IO;
 
 namespace CS
 {
@@ -101,7 +102,14 @@ namespace CS
         //以上、Jsonを扱うためのクラス群
 
 
+        
+        string Json_PATH="test.json";//jsonファイルの場所
+        StreamReader JsonRead=new(Json_PATH,Encoding.GetEncoding("UTF-8"));//json読み込んで
+        string Json_Str=JsonREAD.ReadToEnd();//stringに全文保持して
 
+        TimeTable timeTable=JsonSerializer.Deserialize<TimeTable>(json_str);//timeTableに突っ込む
+        
+        
 
         private List<string> Py_PATH = new();
         public MainWindow()
