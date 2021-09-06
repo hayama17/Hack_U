@@ -40,9 +40,9 @@
             <TextBox x:Name="zoompass" Grid.Column="2" HorizontalAlignment="Left" Margin="102,143,0,0" Text="zoompass" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="15"/>
             <CheckBox x:Name="CH1" Content="Webhook" VerticalAlignment="Top" Height="32" Margin="17,47,0,0" Checked="CH1CheckBox_Checked" Unchecked="CH1CheckBox_Unchecked" Width="120" Grid.Column="1" Grid.ColumnSpan="2"/>
             <TextBox x:Name="webhook" Grid.Column="2" HorizontalAlignment="Center" Margin="0,47,0,0" Text="送信するテキスト" TextWrapping="Wrap" VerticalAlignment="Top" Width="140"/>
-            <ComboBox x:Name="CBOX1" Grid.Column="1" Margin="23,264,0,0" Width="136"  ItemsSource="{Binding Day_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" Grid.ColumnSpan="2" SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBox x:Name="CBOX1" Grid.Column="1" Margin="23,264,0,0" Width="136"  ItemsSource="{Binding Day_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" Grid.ColumnSpan="2" SelectionChanged="CBOX1_SelectionChanged">
             </ComboBox>
-            <ComboBox x:Name="CBOX2" Grid.Column="2" Margin="0,264,79,0" Width="138" ItemsSource="{Binding Period_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" HorizontalAlignment="Right" SelectionChanged="ComboBox_SelectionChanged_1"/>
+            <ComboBox x:Name="CBOX2" Grid.Column="2" Margin="0,264,79,0" Width="138" ItemsSource="{Binding Period_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" HorizontalAlignment="Right" SelectionChanged="CBOX2_SelectionChanged"/>
         </Grid>
     </Grid>
 </Window>

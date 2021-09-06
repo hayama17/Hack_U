@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using Microsoft.Win32;
+using System.IO;
 
 namespace CS
 {
@@ -172,9 +174,23 @@ namespace CS
         }
         void import_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("インポートが選択されました");
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            OpenFileDialog openFileDialog = new();
+            bool? result = openFileDialog.ShowDialog();
+            if (result == true)
+            {
+                webhook.Text = openFileDialog.FileName;
+                using (Stream fileStream = openFileDialog.OpenFile())
+                {
+                    StreamReader sr = new StreamReader(fileStream, true);
+                    webhook.Text = sr.ReadToEnd();
+                }
+            }
+
         }
-        void export_Checked(object sender, RoutedEventArgs e)
+            void export_Checked(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("エクスポートが選択されました");
         }
@@ -223,15 +239,12 @@ namespace CS
         {
 
         }
-
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        
+        private void CBOX1_SelectionChanged(object sender, SelectionChangedEventArgs  e){
 
         }
-
-        private void ComboBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
+        private void CBOX2_SelectionChanged(object sender, SelectionChangedEventArgs  e){
+            
         }
     }
 }
