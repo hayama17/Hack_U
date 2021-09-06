@@ -989,16 +989,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\serit\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\sekai\\.nuget\\packages\\": {}
->>>>>>> c2f8508957ea83264e2bb234e6acc3ff94e2c3f6
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\CS.csproj",
       "projectName": "CS",
       "projectPath": "C:\\Users\\serit\\HackU2021\\HackU\\Hack_U_CS\\Hack_U\\CS.csproj",
@@ -1007,17 +1002,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\serit\\AppData\\Roaming\\NuGet\\NuGet.Config"
-=======
-      "projectUniqueName": "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\CS.csproj",
-      "projectName": "CS",
-      "projectPath": "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\CS.csproj",
-      "packagesPath": "C:\\Users\\sekai\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\sekai\\Documents\\Hack_U2021\\CS\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\sekai\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
->>>>>>> c2f8508957ea83264e2bb234e6acc3ff94e2c3f6
       ],
       "originalTargetFrameworks": [
         "net5.0-windows10.0.19041.0"
