@@ -83,7 +83,7 @@ namespace CS
         private void MouseDoubleClicked(object sender, MouseButtonEventArgs e)//セルをダブルクリックでメインに移動
         {
             var win = new MainWindow();
-            win.Show();
+            win.ShowDialog();
         }
     }
 
