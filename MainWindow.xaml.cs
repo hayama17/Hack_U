@@ -193,9 +193,14 @@ namespace CS
             timeTable = new();
 
             InitializeComponent();
-
-
+            
+            //最初の画面を作成
             DataContext = this;
+            CBOX1.SelectedIndex=0;//コンボボックスの初期値
+            CBOX2.SelectedIndex=0;//コンボボックスの初期値 
+
+            
+            
 
         }
 
@@ -248,6 +253,7 @@ namespace CS
                     timeTable.Path_to_Class(Json_PATH);
                 }
             }
+
 
         }
         void export_Checked(object sender, RoutedEventArgs e)
