@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -40,6 +41,7 @@ namespace CS
         public TimeTable timeTable;//Jsonから生成するtimetabeleクラスの宣言
 
         public string Json_PATH = "test.json";//jsonファイルの場所
+
 
 
         //以下授業クラス"Meeting", 日クラス"Day", 時間割クラス"TimeTable"
@@ -160,19 +162,19 @@ namespace CS
         }
         //以上、Jsonを扱うためのクラス群
 
-        public Day selectedDay =new();
         
-
-
-
-        
-
-
-
-
-
-        public MainWindow()
+        private void Method1(object state)
         {
+            Dispatcher.Invoke((Action)(() =>
+            {            
+                open_bt.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+            }));
+
+        }
+
+        static Timer timer1;
+        public MainWindow()
+        {   
 
             Day_Dic = new Dictionary<string, string>()
                {
@@ -194,16 +196,25 @@ namespace CS
             };
 
             timeTable = new();
-
-            InitializeComponent();
             
+            InitializeComponent();
+
             //最初の画面を作成
             DataContext = this;
-            CBOX1.SelectedIndex=0;//コンボボックスの初期値
-            CBOX2.SelectedIndex=0;//コンボボックスの初期値 
+            CBOX1.SelectedIndex = 0;//コンボボックスの初期値
+            CBOX2.SelectedIndex = 0;//コンボボックスの初期値 
+            var time1 = DateTime.Today + new TimeSpan(21, 47, 0) - DateTime.Now;
 
-            
-            
+            // 8 時過ぎていれば次の日の 8 時にする
+            if (time1 < TimeSpan.Zero) time1 += new TimeSpan(24, 0, 0);
+
+            // 時間になったらそこから 24 時間毎に Method1 を呼び出すようタイマーをセット
+            timer1 = new Timer(Method1, null, time1, new TimeSpan(24, 0, 0));
+
+
+
+
+
 
         }
 
@@ -212,39 +223,39 @@ namespace CS
 
         void CH1CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("チェックされました");
+            System.Windows.MessageBox.Show("チェックされました");
         }
         void CH2CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("自動起動をオンにしました");
+            System.Windows.MessageBox.Show("自動起動をオンにしました");
         }
         void CH3CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("議事録をオンにしました");
+            System.Windows.MessageBox.Show("議事録をオンにしました");
         }
         void CH4CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("チャット監視をオンにしました");
+            System.Windows.MessageBox.Show("チャット監視をオンにしました");
         }
         void CH1CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("チェック外れました");
+            System.Windows.MessageBox.Show("チェック外れました");
         }
         void CH3CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("自動起動をオフにしました");
+            System.Windows.MessageBox.Show("自動起動をオフにしました");
         }
         void CH4CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("議事録をオフにしました");
+            System.Windows.MessageBox.Show("議事録をオフにしました");
         }
         void CH2CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("チャット監視をオフにしました");
+            System.Windows.MessageBox.Show("チャット監視をオフにしました");
         }
         void import_Checked(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openFileDialog = new();
+            Microsoft.Win32.OpenFileDialog openFileDialog = new();
             openFileDialog.Filter = "Json(.json)|*.json|All Files (*.*)|*.*";
             bool? result = openFileDialog.ShowDialog();
             if (result == true)
@@ -261,7 +272,7 @@ namespace CS
         }
         void export_Checked(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            Microsoft.Win32.SaveFileDialog saveFileDialog = new Microsoft.Win32.SaveFileDialog();
             saveFileDialog.FilterIndex = 1;
             saveFileDialog.Filter = "Json(.json)|*.json|All Files (*.*)|*.*";
             bool? result = saveFileDialog.ShowDialog();
@@ -278,7 +289,7 @@ namespace CS
         }
         void edit_Checked(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("時間割を開きます");
+            System.Windows.MessageBox.Show("時間割を開きます");
             var win = new TimeLine();
             win.Show();
 
@@ -322,24 +333,23 @@ namespace CS
 
         }
 
-        public string D,T;
-        
-        public void setDayTime(string D,string T){
-            
-            MessageBox.Show("曜日:"+D+", 時限:"+T);
-        }
-
-
-        private void CBOX1_SelectionChanged(object sender, SelectionChangedEventArgs e)//曜日
+        private void CBOX1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            D=(CBOX1.SelectedValue.ToString());
-            
-            setDayTime(D,T);
+             
         }
         private void CBOX2_SelectionChanged(object sender, SelectionChangedEventArgs e)//時限
         {
-            T=(CBOX2.SelectedValue.ToString());
-            setDayTime(D,T);
+             
         }
+
+
+        
+
+
+
+
     }
+
+
+
 }
