@@ -160,6 +160,9 @@ namespace CS
         }
         //以上、Jsonを扱うためのクラス群
 
+        public Day selectedDay =new();
+        
+
 
 
         
@@ -319,13 +322,24 @@ namespace CS
 
         }
 
-        private void CBOX1_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
+        public string D,T;
+        
+        public void setDayTime(string D,string T){
+            
+            MessageBox.Show("曜日:"+D+", 時限:"+T);
         }
-        private void CBOX2_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
 
+
+        private void CBOX1_SelectionChanged(object sender, SelectionChangedEventArgs e)//曜日
+        {
+            D=(CBOX1.SelectedValue.ToString());
+            
+            setDayTime(D,T);
+        }
+        private void CBOX2_SelectionChanged(object sender, SelectionChangedEventArgs e)//時限
+        {
+            T=(CBOX2.SelectedValue.ToString());
+            setDayTime(D,T);
         }
     }
 }
