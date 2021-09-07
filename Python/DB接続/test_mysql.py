@@ -13,8 +13,8 @@ def search_mail(mail):
         mail = '"'+mail+'"'
         print(mail)
         cnx = mysql.connector.connect(
-        user='docker_user',  # ユーザー名
-        password='docker_pass',  # パスワード
+        user='hym',  # ユーザー名
+        password='YBG2qYNH)ll_MP1-',  # パスワード
         host='daitokai.mydns.jp',  # ホスト名(IPアドレス）
         port='4001',
         database='test'  # データベース名
