@@ -653,7 +653,7 @@ namespace CS
             useMeet.Zoom_id = zoomID.Text;
         }
 
-        private void upload_Checked(object sender, RoutedEventArgs e)
+        private void upload_Checked(object sender, RoutedEventArgs e)//アップロードE
         {
             var dailog = new Web_Hook_menu();
             dailog.ShowDialog();
