@@ -385,24 +385,23 @@ namespace CS
 
 
             }
-            if (CH2.IsChecked.Value)
+
+
+            var myProcess = new Process
             {
-
-                var myProcess = new Process
+                StartInfo = new ProcessStartInfo("python.exe")
                 {
-                    StartInfo = new ProcessStartInfo("python.exe")
-                    {
-                        UseShellExecute = false,//呼び出し時にシェル使うか
-                        RedirectStandardOutput = false,//C#の出力にリダイレクトするか
-                        Arguments = "Python/Auto_zoom_start.py" + " " + useMeet.Zoom_id + " " + useMeet.Zoom_pwd
+                    UseShellExecute = false,//呼び出し時にシェル使うか
+                    RedirectStandardOutput = false,//C#の出力にリダイレクトするか
+                    Arguments = "Python/Auto_zoom_start.py" + " " + useMeet.Zoom_id + " " + useMeet.Zoom_pwd
 
-                    }
-                };
+                }
+            };
 
-                myProcess.Start();
-                myProcess.WaitForExit();
-                myProcess.Close();
-            }
+            myProcess.Start();
+            myProcess.WaitForExit();
+            myProcess.Close();
+
             //MessageBox.Show("ボタンが押されました");
         }
 
