@@ -177,6 +177,8 @@ namespace CS
                 {
                     if (dt.Hour == period_times[i, 0] && dt.Minute == period_times[i, 1])
                     {
+                        // Int32型にキャストして曜日を数値に変換します 
+                        CBOX1.SelectedIndex = (int)dt.DayOfWeek;
                         CBOX2.SelectedIndex = i;
                     }
                 }
@@ -190,27 +192,13 @@ namespace CS
 
         }
 
-        private void Method2(object state)
-        {
-            Dispatcher.Invoke((Action)(() =>
-            {
-
-                DateTime dNow = System.DateTime.Now;
-                int weekNumber = (int)dNow.DayOfWeek;    // Int32型にキャストして曜日を数値に変換します 
-                CBOX1.SelectedIndex = weekNumber;
-
-
-            }));
-
-
-        }
 
         static Timer timer1;
         static Timer timer2;
         static Timer timer3;
         static Timer timer4;
         static Timer timer5;
-        static Timer timerday;
+
 
 
         void Time_scadule_1(int hour, int min)
@@ -252,12 +240,6 @@ namespace CS
         }
 
 
-        void Time_scadule_day(int hour, int min)
-        {
-            var time1 = DateTime.Today + new TimeSpan(hour, min, 0) - DateTime.Now;
-            if (time1 < TimeSpan.Zero) time1 += new TimeSpan(24, 0, 0);
-            timerday = new Timer(Method2, null, time1, new TimeSpan(24, 0, 0));
-        }
 
         public MainWindow()
         {
@@ -294,7 +276,6 @@ namespace CS
             Time_scadule_3(period_times[2, 0], period_times[2, 1]);//スケジューラー5限分生成
             Time_scadule_4(period_times[3, 0], period_times[3, 1]);//スケジューラー5限分生成
             Time_scadule_5(period_times[4, 0], period_times[4, 1]);//スケジューラー5限分生成
-            Time_scadule_day(0, 00);
             CBOX1.SelectedIndex = 1;//コンボボックスの初期値
             CBOX2.SelectedIndex = 0;//コンボボックスの初期値 
 
