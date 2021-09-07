@@ -35,6 +35,10 @@ img2 = None
 pdfimg = cv2.imread('./Image/pdfImage.png')
 wordimg = cv2.imread('./Image/wordImage.png')
 excelimg = cv2.imread('./Image/excelImage.png')
+zoomiconimg = cv2.imread('./Image/zoomIcon.png')
+chatbuttonimg = cv2.imread('./Image/chatButtonImage.png')
+chatimg = cv2.imread('./Image/chatImage.png')
+startimg = cv2.imread('./Image/start.png')
 
 pdfflag = False
 wordflag = False
@@ -43,32 +47,20 @@ excelflag = False
 student_id = '19k1131'
 idflag = False
 
-# 座標選択　(後で改良する)
-def PosGet():
-    print("左上隅の座標を取得します")
-    sleep(3)
-    x1, y1 = pyautogui.position()
+main = 'main'
+chat = 'chat'
 
-    print("右下隅の座標を取得します")
-    sleep(3)
-    x2, y2 = pyautogui.position()
-
-    x2 -= x1
-    y2 -= y1
-
-    return(x1, y1, x2, y2)
+width = pyautogui.size().width
+height = pyautogui.size().height
 
 # 画像比較
 def ImageCompare(img1, img2):
     return numpy.array_equal(img1, img2)
 
 # 選択した範囲のスクリーンショットを撮る
-def ScreenShot(x1, y1, x2, y2):
+def ScreenShot(x1, y1, x2, y2, name):
     sc = pyautogui.screenshot(region=(x1, y1, x2, y2))
-    sc.save('TransActor.png')
-    img = Image.open("TransActor.png")
-    
-    return img
+    sc.save('./Data/' + name + '.png')
 
 # 画像を加工 (必要な文字のみ入手できるようにする)
 def Recolor():
@@ -103,12 +95,12 @@ def JudgeTypeID(split, num):
 
 # 自動で学籍番号を入力する
 def AutoTypeID(x1, y1, x2, y2):
+    global idflag
     pyautogui.click(x1 + (x2 / 2), y1 + y2 - 10)
     pyperclip.copy(student_id)
     pyautogui.hotkey('ctrl', 'v')
     pyautogui.hotkey('enter')
     idflag = True
-
 
 # pdfファイルが送られたらTrueを返す
 def pdfFile(cv2img):
@@ -162,26 +154,74 @@ def FileNotification():
     else:
         excelflag = False
 
+# tmplの座標を指定する
+def CoordinateSearch(img, tmpl):
+    result = cv2.matchTemplate(img, tmpl, cv2.TM_CCORR_NORMED)
+    minVal, maxVal, minLoc, maxLoc = cv2.minMaxLoc(result)
+    x = maxLoc[0]
+    y = maxLoc[1]
+    
+    return x, y
 
+# zoom開始のオーディオ設定をクリック
+def Start():
+    ScreenShot(0, 0, width, height, main)
+    img = cv2.imread('./Data/' + main + '.png')
+    x, y = CoordinateSearch(img, startimg)
+    pyautogui.click(x + 10, y + 10)
 
-x1, y1, x2, y2 = PosGet()
-print(x1, y1)
-print(x2, y2)
+# zoomをフルスクリーンにする
+def zoomFullScreen():
+    ScreenShot(0, 0, width, height, main)
+    img = cv2.imread('./Data/' + main + '.png')
+    x, y = CoordinateSearch(img, zoomiconimg)
+    pyautogui.click(x + 10, y + 10)
+    pyautogui.hotkey('winleft', 'up')
+
+# チャットをクリック
+def zoomChatClick():
+    ScreenShot(0, 0, width, height, main)
+    img = cv2.imread('./Data/' + main + '.png')
+    x, y = CoordinateSearch(img, chatbuttonimg)
+    pyautogui.click(x + 5, y + 5)
+
+# チャット画面の座標を選択
+def SaveChatLocation():
+    ScreenShot(0, 0, width, height, main)
+    img = cv2.imread('./Data/' + main + '.png')
+    x_c, y_c = CoordinateSearch(img, chatimg)
+    w = chatimg.shape[1]
+    h = chatimg.shape[0]
+    sleep(1)
+    ScreenShot(x_c, y_c, w, h, chat)
+    return x_c, y_c, w, h
 
 count = 0
+
+Start()
+sleep(1)
+zoomFullScreen()
+sleep(1)
+zoomChatClick()
+sleep(1)
+x1, y1, x2, y2 = SaveChatLocation()
 while True:
-    img1 = ScreenShot(x1, y1, x2, y2)
+    ScreenShot(x1, y1, x2, y2, chat)
+    img1 = Image.open('./Data/chat.png')
     img_rgb = img1.convert("RGB")
     pixels = img_rgb.load()
+    print(idflag)
 
     if img2 is not None:
-        if not ImageCompare(img1, img2): # 画面が変わっていたら...
+        if ImageCompare(img1, img2) == False: # 画面が変わっていたら...
             count += 1
             FileNotification()
             Recolor()
             textlis = TranslationActors()
+            print(textlis)
             if JudgeTypeID(textlis, count):
-                if not idflag:
+                print(12)
+                if idflag == False:
                     AutoTypeID(x1, y1, x2, y2)
                     count = 0
         else:
