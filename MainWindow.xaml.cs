@@ -622,6 +622,8 @@ namespace CS
                 }
             }
             // System.Windows.MessageBox.Show(D.ToString() + "," + T.ToString());
+            zoomID.Text=useMeetId;
+            zoompass.Text=useMeetPwd;
 
         }
 
