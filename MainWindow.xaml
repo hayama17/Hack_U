@@ -38,8 +38,8 @@
             <CheckBox x:Name="CH3" Content="議事録" Grid.Column="1" Margin="17,181,0,0" VerticalAlignment="Top" Checked="CH3CheckBox_Checked" Unchecked="CH3CheckBox_Unchecked" Grid.ColumnSpan="2"/>
             <CheckBox x:Name="CH4" Content="チャット監視" Grid.Column="1" Margin="17,214,0,0" Checked="CH4CheckBox_Checked" Unchecked="CH4CheckBox_Unchecked" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
             <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="17,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Language="ja-jp" /></TextBlock>
-            <TextBox x:Name="zoomID" Grid.Column="2" HorizontalAlignment="Left" Margin="258,85,0,0" Text="zoomID" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="16" TextChanged="ZoomID_TextChanged" Grid.ColumnSpan="4"/>
-            <TextBox x:Name="zoompass" Grid.Column="2" HorizontalAlignment="Left" Margin="258,129,0,0" Text="zoompass" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="15" TextChanged="Zoompass_TextChanged" Grid.ColumnSpan="4"/>
+            <TextBox x:Name="subject" Grid.Column="2" HorizontalAlignment="Left" Margin="258,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="16" TextChanged="ZoomID_TextChanged" Grid.ColumnSpan="4"/>
+            <TextBox x:Name="zoomID" Grid.Column="2" HorizontalAlignment="Left" Margin="258,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="15" TextChanged="ZoomID_TextChanged" Grid.ColumnSpan="4"/>
             <CheckBox x:Name="CH1" Content="Webhook" VerticalAlignment="Top" Height="32" Margin="17,47,0,0" Checked="CH1CheckBox_Checked" Unchecked="CH1CheckBox_Unchecked" Width="120" Grid.Column="1" Grid.ColumnSpan="2"/>
             <TextBox x:Name="webhook" Grid.Column="2" HorizontalAlignment="Left" Margin="258,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" TextChanged="webhook_TextChanged" Grid.ColumnSpan="4"/>
             <ComboBox x:Name="CBOX1" Grid.Column="1" Margin="23,264,0,0" Width="136"  ItemsSource="{Binding Day_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" Grid.ColumnSpan="2" SelectionChanged="CBOX1_SelectionChanged">
@@ -49,15 +49,17 @@
         </Grid>
         <Grid x:Name="Grid1_Copy1" Grid.ColumnSpan="6" Grid.RowSpan="2" Margin="0,-1,0,1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="19*"/>
-                <ColumnDefinition Width="68*"/>
-                <ColumnDefinition Width="299*"/>
-                <ColumnDefinition Width="40*"/>
-                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="24*"/>
                 <ColumnDefinition Width="87*"/>
-                <ColumnDefinition Width="45*"/>
+                <ColumnDefinition Width="383*"/>
+                <ColumnDefinition Width="51*"/>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="39*"/>
+                <ColumnDefinition Width="55*"/>
+                <ColumnDefinition Width="17*"/>
+                <ColumnDefinition Width="58*"/>
             </Grid.ColumnDefinitions>
-            <Menu VerticalAlignment="Top" Height="37" Grid.ColumnSpan="7">
+            <Menu VerticalAlignment="Top" Height="37" Grid.ColumnSpan="9">
                 <MenuItem Header="ファイル" RenderTransformOrigin="1.889,0.503">
                     <MenuItem x:Name="インポート1" Header="インポート" Click="import_Checked"/>
                     <MenuItem x:Name="エクスポート1" Header="エクスポート" Click="export_Checked"/>
@@ -67,19 +69,14 @@
                     <MenuItem x:Name="アップロード1" Header="アップロード" Click="upload_Checked"/>
                 </MenuItem>
             </Menu>
-            <CheckBox x:Name="CH5" Content="自動起動" VerticalAlignment="Top" Height="32" Margin="17,103,0,0" Checked="CH2CheckBox_Checked" Unchecked="CH2CheckBox_Unchecked" Width="120" Grid.Column="1" Grid.ColumnSpan="2"/>
-            <Button x:Name="open_bt1" Content="開く" VerticalAlignment="Bottom" Height="33" Click="button_clicked" Width="74" Margin="31,0,0,0" Grid.Column="3" Grid.ColumnSpan="3" Background="#FFEACF20" Foreground="WhiteSmoke"/>
-            <CheckBox x:Name="CH6" Content="議事録" Grid.Column="1" Margin="17,181,0,0" VerticalAlignment="Top" Checked="CH3CheckBox_Checked" Unchecked="CH3CheckBox_Unchecked" Grid.ColumnSpan="2"/>
-            <CheckBox x:Name="CH7" Content="チャット監視" Grid.Column="1" Margin="17,214,0,0" Checked="CH4CheckBox_Checked" Unchecked="CH4CheckBox_Unchecked" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+            <Button x:Name="open_bt1" Content="開く" VerticalAlignment="Bottom" Height="33" Click="button_clicked" Width="74" Margin="31,0,0,0" Grid.Column="3" Grid.ColumnSpan="4" Background="#FFEACF20" Foreground="WhiteSmoke"/>
             <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="17,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Language="ja-jp" Text="ZOOM"/></TextBlock>
-            <TextBox x:Name="zoompass1" Grid.Column="2" HorizontalAlignment="Left" Margin="258,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="15" TextChanged="Zoompass_TextChanged" Grid.ColumnSpan="4"/>
-            <CheckBox x:Name="CH8" Content="Webhook" VerticalAlignment="Top" Height="32" Margin="17,47,0,0" Checked="CH1CheckBox_Checked" Unchecked="CH1CheckBox_Unchecked" Width="120" Grid.Column="1" Grid.ColumnSpan="2"/>
-            <TextBox x:Name="URL" Grid.Column="2" HorizontalAlignment="Left" Margin="258,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" TextChanged="webhook_TextChanged" Grid.ColumnSpan="4"/>
-            <ComboBox x:Name="CBOX2" Grid.Column="1" Margin="23,264,0,0" Width="136"  ItemsSource="{Binding Day_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" Grid.ColumnSpan="2" SelectionChanged="CBOX1_SelectionChanged"/>
+            <TextBox x:Name="zoompass" Grid.Column="2" HorizontalAlignment="Left" Margin="258,169,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="15" TextChanged="Zoompass_TextChanged" Grid.ColumnSpan="2"/>
+            <TextBox x:Name="URL" Grid.Column="2" HorizontalAlignment="Left" Margin="258,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" TextChanged="webhook_TextChanged" Grid.ColumnSpan="2"/>
             <TextBlock Grid.Column="2" Margin="186,90,85,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Height="43"><Run Language="ja-jp" Text="授業名"/></TextBlock>
             <TextBlock Grid.Column="2" Margin="181,132,90,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Height="43"><Run Language="ja-jp" Text="zoomID"/></TextBlock>
             <TextBlock Grid.Column="2" Margin="174,176,97,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Height="42"><Run Text="zoom"/><Run Language="ja-jp" Text="pass"/></TextBlock>
-            <ComboBox x:Name="time" Grid.Column="2" Margin="86,264,0,0" Width="129"/>
+            <ComboBox x:Name="CBOX2" Grid.Column="2" Margin="0,264,153,0" Width="138" ItemsSource="{Binding Period_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" HorizontalAlignment="Right" SelectionChanged="CBOX2_SelectionChanged"/>
         </Grid>
     </Grid>
 </Window>
