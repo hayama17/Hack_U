@@ -22,10 +22,10 @@ services:
   db:
     image: mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: docker_db
-      MYSQL_USER: docker_user
-      MYSQL_PASSWORD: docker_pass
+      MYSQL_ROOT_PASSWORD: ....
+      MYSQL_DATABASE: .....
+      MYSQL_USER: ....
+      MYSQL_PASSWORD: .......
     ports:
       - xxxx:3306
     volumes:
