@@ -634,6 +634,7 @@ namespace CS
             }
             
             // System.Windows.MessageBox.Show(D.ToString() + "," + T.ToString());
+            
             zoomID.Text=useMeet.Zoom_id;
             zoompass.Text=useMeet.Zoom_pwd;
 
