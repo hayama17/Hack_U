@@ -35,8 +35,10 @@ namespace CS
 
         private List<string> Py_PATH = new();//pythonのスクリプトのパスのリスト
         private string[] daylist = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-        // public int[,] period_times = new int[,] { { 12, 5 }, { 12, 7 }, { 12, 9 }, { 12, 10 }, { 12, 11 } };test用
-        public int[,] period_times = new int[,] { { 9, 0 }, { 10, 40 }, { 13, 20 }, { 15, 10 }, { 17, 0 } };
+        // テスト用
+        public int[,] period_times = new int[,] { { 12, 56 }, { 12, 58 }, { 13, 0 }, { 13, 4 }, { 13, 8 } };
+        
+        // public int[,] period_times = new int[,] { { 9, 0 }, { 10, 40 }, { 13, 20 }, { 15, 10 }, { 17, 0 } };1
         public Dictionary<string, string> Day_Dic { get; set; }//コンボボックスの曜日の要素
         public Dictionary<string, string> Period_Dic { get; set; }//コンボボックスの何限の要素
 
