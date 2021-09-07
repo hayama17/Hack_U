@@ -55,12 +55,13 @@ namespace CS
                 StartInfo = new ProcessStartInfo("python.exe")
                 {
                     UseShellExecute = false,//呼び出し時にシェル使うか
-                    RedirectStandardOutput = false,//C#の出力にリダイレクトするか
-                    Arguments = "Python/test_mysql.py"+ " "+mail_Text+" "+Json_PATH
+                    RedirectStandardOutput = true,//C#の出力にリダイレクトするか
+                    Arguments = "Python/test_mysql.py" + " "+ mail_Text.Text + " "+Path_Text.Text
 
                 }
             };
-
+            var CurrentDirectory = Directory.GetCurrentDirectory();
+            MessageBox.Show(CurrentDirectory);
             myProcess.Start();
             myProcess.WaitForExit();
             myProcess.Close();
