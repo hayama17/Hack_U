@@ -35,7 +35,8 @@ namespace CS
 
         private List<string> Py_PATH = new();//pythonのスクリプトのパスのリスト
         private string[] daylist = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-        public int[,] period_times = new int[,] { { 9, 0 }, { 10, 50 }, { 13, 20 }, { 15, 10 }, { 17, 0 } };
+        // public int[,] period_times = new int[,] { { 12, 5 }, { 12, 7 }, { 12, 9 }, { 12, 10 }, { 12, 11 } };test用
+        public int[,] period_times = new int[,] { { 9, 0 }, { 10, 40 }, { 13, 20 }, { 15, 10 }, { 17, 00 } };
         public Dictionary<string, string> Day_Dic { get; set; }//コンボボックスの曜日の要素
         public Dictionary<string, string> Period_Dic { get; set; }//コンボボックスの何限の要素
 
@@ -127,6 +128,9 @@ namespace CS
             [JsonPropertyName("Saturday")]
             public Day Saturday { get; set; }
 
+            [JsonPropertyName("Sunday")]
+            public Day Sunday { get; set; }
+
             [JsonPropertyName("Webhook")]
             public Webhook Webhook { get; set; }
 
@@ -139,6 +143,7 @@ namespace CS
                 this.Thursday = new Day();
                 this.Friday = new Day();
                 this.Saturday = new Day();
+                this.Sunday = new Day();
                 this.Webhook = new Webhook();
             }
 
@@ -166,29 +171,92 @@ namespace CS
             Dispatcher.Invoke((Action)(() =>
             {
                 open_bt.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                DateTime dt = DateTime.Now;
+                for (int i = 0;i<5;i++){
+                    if(dt.Hour==period_times[i,0] && dt.Minute == period_times[i,1]){
+                        CBOX2.SelectedIndex = i;
+                    }
+                }
             }));
+
+
+        }
+
+        private void Method2(object state)
+        {
+            Dispatcher.Invoke((Action)(() =>
+            {
+
+                DateTime dNow = System.DateTime.Now;
+                int weekNumber = (int)dNow.DayOfWeek;    // Int32型にキャストして曜日を数値に変換します 
+                CBOX1.SelectedIndex = weekNumber;
+
+
+            }));
+
 
         }
 
         static Timer timer1;
+        static Timer timer2;
+        static Timer timer3;
+        static Timer timer4;
+        static Timer timer5;
+        static Timer timerday;
 
-        void Time_scadule(int hour, int min)
+
+        void Time_scadule_1(int hour, int min)
         {
             var time1 = DateTime.Today + new TimeSpan(hour, min, 0) - DateTime.Now;
-
             // 8 時過ぎていれば次の日の 8 時にする
             if (time1 < TimeSpan.Zero) time1 += new TimeSpan(24, 0, 0);
-
             // 時間になったらそこから 24 時間毎に Method1 を呼び出すようタイマーをセット
             timer1 = new Timer(Method1, null, time1, new TimeSpan(24, 0, 0));
+
         }
 
+
+        void Time_scadule_2(int hour, int min)
+        {
+            var time2 = DateTime.Today + new TimeSpan(hour, min, 0) - DateTime.Now;
+            if (time2 < TimeSpan.Zero) time2 += new TimeSpan(24, 0, 0);
+            timer2 = new Timer(Method1, null, time2, new TimeSpan(24, 0, 0));
+
+        }
+
+        void Time_scadule_3(int hour, int min)
+        {
+            var time3 = DateTime.Today + new TimeSpan(hour, min, 0) - DateTime.Now;
+            if (time3 < TimeSpan.Zero) time3 += new TimeSpan(24, 0, 0);
+            timer3 = new Timer(Method1, null, time3, new TimeSpan(24, 0, 0));
+        }
+        void Time_scadule_4(int hour, int min)
+        {
+            var time4 = DateTime.Today + new TimeSpan(hour, min, 0) - DateTime.Now;
+            if (time4 < TimeSpan.Zero) time4 += new TimeSpan(24, 0, 0);
+            timer4 = new Timer(Method1, null, time4, new TimeSpan(24, 0, 0));
+        }
+        void Time_scadule_5(int hour, int min)
+        {
+            var time1 = DateTime.Today + new TimeSpan(hour, min, 0) - DateTime.Now;
+            if (time1 < TimeSpan.Zero) time1 += new TimeSpan(24, 0, 0);
+            timer5 = new Timer(Method1, null, time1, new TimeSpan(24, 0, 0));
+        }
+
+
+        void Time_scadule_day(int hour, int min)
+        {
+            var time1 = DateTime.Today + new TimeSpan(hour, min, 0) - DateTime.Now;
+            if (time1 < TimeSpan.Zero) time1 += new TimeSpan(24, 0, 0);
+            timerday = new Timer(Method2, null, time1, new TimeSpan(24, 0, 0));
+        }
 
         public MainWindow()
         {
 
             Day_Dic = new Dictionary<string, string>()
                {
+                   {"Sunday","日曜日"},
                    {"Monday","月曜日" },
                    {"Tuesday","火曜日" },
                    {"Wednesday","水曜日" },
@@ -212,13 +280,15 @@ namespace CS
 
             //最初の画面を作成
             DataContext = this;
-            CBOX1.SelectedIndex = 0;//コンボボックスの初期値
-            CBOX2.SelectedIndex = 0;//コンボボックスの初期値 
 
-            for (int i = 0; i < 5; i++)
-            {
-                Time_scadule(period_times[i, 0], period_times[i, 1]);//スケジューラー5限分生成
-            }
+            Time_scadule_1(period_times[0, 0], period_times[0, 1]);//スケジューラー5限分生成
+            Time_scadule_2(period_times[1, 0], period_times[1, 1]);//スケジューラー5限分生成
+            Time_scadule_3(period_times[2, 0], period_times[2, 1]);//スケジューラー5限分生成
+            Time_scadule_4(period_times[3, 0], period_times[3, 1]);//スケジューラー5限分生成
+            Time_scadule_5(period_times[4, 0], period_times[4, 1]);//スケジューラー5限分生成
+            Time_scadule_day(12, 20);
+            CBOX1.SelectedIndex = 1;//コンボボックスの初期値
+            CBOX2.SelectedIndex = 0;//コンボボックスの初期値 
 
         }
 
@@ -308,6 +378,7 @@ namespace CS
         {
             if (CH1.IsChecked.Value)
             {
+                DateTime dt = DateTime.Now;
                 Py_PATH.Add("Python/webhook.py");
                 var myProcess = new Process
                 {
@@ -315,7 +386,8 @@ namespace CS
                     {
                         UseShellExecute = false,//呼び出し時にシェル使うか
                         RedirectStandardOutput = false,//C#の出力にリダイレクトするか
-                        Arguments = "Python/webhook.py" +" " + timeTable.Webhook.Webhook_url + " " + "MainWindowから"
+
+                        Arguments = "Python/webhook.py" + " " + timeTable.Webhook.Webhook_url + " " + "今" + dt.Hour + "時" + dt.Minute + "分です"
                     }
                 };
                 myProcess.Start();
@@ -326,14 +398,14 @@ namespace CS
             }
             if (CH2.IsChecked.Value)
             {
-    
+
                 var myProcess = new Process
                 {
                     StartInfo = new ProcessStartInfo("python.exe")
                     {
                         UseShellExecute = false,//呼び出し時にシェル使うか
                         RedirectStandardOutput = false,//C#の出力にリダイレクトするか
-                        Arguments = "Python/Auto_zoom_start.py"+ " " + useMeetId + " " + useMeetPwd
+                        Arguments = "Python/Auto_zoom_start.py" + " " + useMeetId + " " + useMeetPwd
 
                     }
                 };
@@ -353,7 +425,7 @@ namespace CS
         public string useMeetId, useMeetPwd;//これ使って
         public void setMeeting(int D, int T)//何曜日何限がセットされてるかのチェック1
         {
-            if (D == 0)
+            if (D == 1)
             {
                 if (T == 0)
                 {
@@ -381,7 +453,7 @@ namespace CS
                     useMeetPwd = timeTable.Monday.Fourth.Zoom_pwd;
                 }
             }
-            else if (D == 1)
+            else if (D == 2)
             {
                 if (T == 0)
                 {
@@ -409,7 +481,7 @@ namespace CS
                     useMeetPwd = timeTable.Tuesday.Fourth.Zoom_pwd;
                 }
             }
-            else if (D == 2)
+            else if (D == 3)
             {
                 if (T == 0)
                 {
@@ -437,7 +509,7 @@ namespace CS
                     useMeetPwd = timeTable.Wednesday.Fourth.Zoom_pwd;
                 }
             }
-            else if (D == 3)
+            else if (D == 4)
             {
                 if (T == 0)
                 {
@@ -465,7 +537,7 @@ namespace CS
                     useMeetPwd = timeTable.Thursday.Fourth.Zoom_pwd;
                 }
             }
-            else if (D == 4)
+            else if (D == 5)
             {
                 if (T == 0)
                 {
@@ -493,7 +565,7 @@ namespace CS
                     useMeetPwd = timeTable.Friday.Fourth.Zoom_pwd;
                 }
             }
-            else if (D == 5)
+            else if (D == 6)
             {
                 if (T == 0)
                 {
@@ -521,7 +593,35 @@ namespace CS
                     useMeetPwd = timeTable.Saturday.Fourth.Zoom_pwd;
                 }
             }
-            System.Windows.MessageBox.Show(D.ToString() + "," + T.ToString());
+            else if (D == 0)
+            {
+                if (T == 0)
+                {
+                    useMeetId = timeTable.Sunday.First.Zoom_id;
+                    useMeetPwd = timeTable.Sunday.First.Zoom_pwd;
+                }
+                else if (T == 1)
+                {
+                    useMeetId = timeTable.Sunday.Second.Zoom_id;
+                    useMeetPwd = timeTable.Sunday.Second.Zoom_pwd;
+                }
+                else if (T == 2)
+                {
+                    useMeetId = timeTable.Sunday.Third.Zoom_id;
+                    useMeetPwd = timeTable.Sunday.Third.Zoom_pwd;
+                }
+                else if (T == 3)
+                {
+                    useMeetId = timeTable.Sunday.Fourth.Zoom_id;
+                    useMeetPwd = timeTable.Sunday.Fourth.Zoom_pwd;
+                }
+                else if (T == 4)
+                {
+                    useMeetId = timeTable.Sunday.Fifth.Zoom_id;
+                    useMeetPwd = timeTable.Sunday.Fourth.Zoom_pwd;
+                }
+            }
+            // System.Windows.MessageBox.Show(D.ToString() + "," + T.ToString());
 
         }
 
