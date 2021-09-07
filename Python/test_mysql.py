@@ -1,6 +1,8 @@
 import mysql.connector
 import json
 import codecs
+import sys
+args=sys.argv
 cnx = None
 
 
@@ -41,7 +43,7 @@ def search_mail(mail):
 
 try:    
 
-    mail = 'sekaidokei17@gmail.com'
+    mail = args[1]
     cnx = mysql.connector.connect(
         user='docker_user',  # ユーザー名
         password='docker_pass',  # パスワード
@@ -57,7 +59,7 @@ try:
     
     
 
-    with open('test2.json', mode='rt', encoding='utf-8') as file:
+    with open(args[2], mode='rt', encoding='utf-8') as file:
 
         # 辞書オブジェクト(dictionary)を取得
         data = json.load(file)
