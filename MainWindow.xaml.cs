@@ -35,8 +35,10 @@ namespace CS
 
         private List<string> Py_PATH = new();//pythonのスクリプトのパスのリスト
         private string[] daylist = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
-        // public int[,] period_times = new int[,] { { 12, 5 }, { 12, 7 }, { 12, 9 }, { 12, 10 }, { 12, 11 } };test用
-        public int[,] period_times = new int[,] { { 9, 0 }, { 10, 40 }, { 13, 20 }, { 15, 10 }, { 17, 0 } };
+        // test用
+        public int[,] period_times = new int[,] { { 0, 2 }, { 0, 4 }, { 0, 7 }, { 0, 9 }, { 0, 10 } };
+
+        // public int[,] period_times = new int[,] { { 9, 0 }, { 10, 40 }, { 13, 20 }, { 15, 10 }, { 17, 0 } };
         public Dictionary<string, string> Day_Dic { get; set; }//コンボボックスの曜日の要素
         public Dictionary<string, string> Period_Dic { get; set; }//コンボボックスの何限の要素
 
@@ -170,13 +172,19 @@ namespace CS
         {
             Dispatcher.Invoke((Action)(() =>
             {
-                open_bt.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
                 DateTime dt = DateTime.Now;
-                for (int i = 0;i<5;i++){
-                    if(dt.Hour==period_times[i,0] && dt.Minute == period_times[i,1]){
+                for (int i = 0; i < 5; i++)
+                {
+                    if (dt.Hour == period_times[i, 0] && dt.Minute == period_times[i, 1])
+                    {
                         CBOX2.SelectedIndex = i;
                     }
                 }
+                if ((bool)CH2.IsChecked)
+                {
+                    open_bt.RaiseEvent(new RoutedEventArgs(Button.ClickEvent));
+                }
+
             }));
 
 
@@ -286,7 +294,7 @@ namespace CS
             Time_scadule_3(period_times[2, 0], period_times[2, 1]);//スケジューラー5限分生成
             Time_scadule_4(period_times[3, 0], period_times[3, 1]);//スケジューラー5限分生成
             Time_scadule_5(period_times[4, 0], period_times[4, 1]);//スケジューラー5限分生成
-            Time_scadule_day(12, 20);
+            Time_scadule_day(0, 00);
             CBOX1.SelectedIndex = 1;//コンボボックスの初期値
             CBOX2.SelectedIndex = 0;//コンボボックスの初期値 
 
@@ -420,16 +428,17 @@ namespace CS
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             //MessageBox.Show("変更");
-            if(!zoomID.Text.Equals("ZoomID")){
+            if (!zoomID.Text.Equals("ZoomID"))
+            {
                 //setMeeting(d,t);
-                useMeet.Zoom_id=zoomID.Text;
+                useMeet.Zoom_id = zoomID.Text;
             }
-            
-            
+
+
         }
 
         public string useMeetId, useMeetPwd;//これ使って
-        public Meeting useMeet=new();
+        public Meeting useMeet = new();
         public void setMeeting(int D, int T)//何曜日何限がセットされてるかのチェック1
         {
             if (D == 1)
@@ -438,7 +447,7 @@ namespace CS
                 {
                     //useMeetId = timeTable.Monday.First.Zoom_id;
                     //useMeetPwd = timeTable.Monday.First.Zoom_pwd;
-                    useMeet =timeTable.Monday.First;
+                    useMeet = timeTable.Monday.First;
                     //useMeetId=useMeet.Zoom_id;
                     //useMeetPwd=useMeet.Zoom_pwd;
                 }
@@ -446,22 +455,22 @@ namespace CS
                 {
                     //useMeetId = timeTable.Monday.Second.Zoom_id;
                     //useMeetPwd = timeTable.Monday.Second.Zoom_pwd;
-                    useMeet =timeTable.Monday.Second;
+                    useMeet = timeTable.Monday.Second;
                 }
                 else if (T == 2)
                 {
-                    useMeet=timeTable.Monday.Third;
-                    
+                    useMeet = timeTable.Monday.Third;
+
                 }
                 else if (T == 3)
                 {
                     useMeet = timeTable.Monday.Fourth;
-                   
+
                 }
                 else if (T == 4)
                 {
                     useMeet = timeTable.Monday.Fifth;
-                    
+
                 }
             }
             else if (D == 2)
@@ -469,27 +478,27 @@ namespace CS
                 if (T == 0)
                 {
                     useMeet = timeTable.Tuesday.First;
-                    
+
                 }
                 else if (T == 1)
                 {
                     useMeet = timeTable.Tuesday.Second;
-                   
+
                 }
                 else if (T == 2)
                 {
                     useMeet = timeTable.Tuesday.Third;
-                    
+
                 }
                 else if (T == 3)
                 {
                     useMeet = timeTable.Tuesday.Fourth;
-                    
+
                 }
                 else if (T == 4)
                 {
                     useMeet = timeTable.Tuesday.Fifth;
-                    
+
                 }
             }
             else if (D == 3)
@@ -497,27 +506,27 @@ namespace CS
                 if (T == 0)
                 {
                     useMeet = timeTable.Wednesday.First;
-                    
+
                 }
                 else if (T == 1)
                 {
                     useMeet = timeTable.Wednesday.Second;
-                    
+
                 }
                 else if (T == 2)
                 {
-                    useMeet= timeTable.Wednesday.Third;
-                    
+                    useMeet = timeTable.Wednesday.Third;
+
                 }
                 else if (T == 3)
                 {
                     useMeet = timeTable.Wednesday.Fourth;
-                    
+
                 }
                 else if (T == 4)
                 {
                     useMeet = timeTable.Wednesday.Fifth;
-                    
+
                 }
             }
             else if (D == 4)
@@ -525,27 +534,27 @@ namespace CS
                 if (T == 0)
                 {
                     useMeet = timeTable.Thursday.First;
-                    
+
                 }
                 else if (T == 1)
                 {
                     useMeet = timeTable.Thursday.Second;
-                    
+
                 }
                 else if (T == 2)
                 {
                     useMeet = timeTable.Thursday.Third;
-                    
+
                 }
                 else if (T == 3)
                 {
                     useMeet = timeTable.Thursday.Fourth;
-                    
+
                 }
                 else if (T == 4)
                 {
                     useMeet = timeTable.Thursday.Fifth;
-                    
+
                 }
             }
             else if (D == 5)
@@ -553,27 +562,27 @@ namespace CS
                 if (T == 0)
                 {
                     useMeet = timeTable.Friday.First;
-                    
+
                 }
                 else if (T == 1)
                 {
                     useMeet = timeTable.Friday.Second;
-                    
+
                 }
                 else if (T == 2)
                 {
                     useMeet = timeTable.Friday.Third;
-                    
+
                 }
                 else if (T == 3)
                 {
-                    useMeet= timeTable.Friday.Fourth;
-                   
+                    useMeet = timeTable.Friday.Fourth;
+
                 }
                 else if (T == 4)
                 {
                     useMeet = timeTable.Friday.Fifth;
-                    
+
                 }
             }
             else if (D == 6)
@@ -581,27 +590,27 @@ namespace CS
                 if (T == 0)
                 {
                     useMeet = timeTable.Saturday.First;
-                    
+
                 }
                 else if (T == 1)
                 {
                     useMeet = timeTable.Saturday.Second;
-                    
+
                 }
                 else if (T == 2)
                 {
                     useMeet = timeTable.Saturday.Third;
-                    
+
                 }
                 else if (T == 3)
                 {
                     useMeet = timeTable.Saturday.Fourth;
-                    
+
                 }
                 else if (T == 4)
                 {
                     useMeet = timeTable.Saturday.Fifth;
-                    
+
                 }
             }
             else if (D == 0)
@@ -609,33 +618,33 @@ namespace CS
                 if (T == 0)
                 {
                     useMeet = timeTable.Sunday.First;
-                    
+
                 }
                 else if (T == 1)
                 {
                     useMeet = timeTable.Sunday.Second;
-                    
+
                 }
                 else if (T == 2)
                 {
                     useMeet = timeTable.Sunday.Third;
-                    
+
                 }
                 else if (T == 3)
                 {
                     useMeet = timeTable.Sunday.Fourth;
-                    
+
                 }
                 else if (T == 4)
                 {
                     useMeet = timeTable.Sunday.Fifth;
-                    
+
                 }
             }
-            
+
             // System.Windows.MessageBox.Show(D.ToString() + "," + T.ToString());
-            zoomID.Text=useMeet.Zoom_id;
-            zoompass.Text=useMeet.Zoom_pwd;
+            zoomID.Text = useMeet.Zoom_id;
+            zoompass.Text = useMeet.Zoom_pwd;
 
         }
 
@@ -648,9 +657,9 @@ namespace CS
         }
         private void Zoompass_TextChanged(object sender, TextChangedEventArgs e)
         {
-            useMeet.Zoom_pwd=zoompass.Text;
+            useMeet.Zoom_pwd = zoompass.Text;
         }
-        
+
 
         private void CBOX1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -661,7 +670,7 @@ namespace CS
 
         private void ZoomID_TextChanged(object sender, TextChangedEventArgs e)
         {
-            useMeet.Zoom_id=zoomID.Text;
+            useMeet.Zoom_id = zoomID.Text;
         }
 
         private void upload_Checked(object sender, RoutedEventArgs e)
