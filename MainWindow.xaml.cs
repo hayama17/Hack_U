@@ -369,7 +369,7 @@ namespace CS
             {
                 DateTime dt = DateTime.Now;
                 Py_PATH.Add("Python/webhook.py");
-                var myProcess = new Process
+                var myWebProcess = new Process
                 {
                     StartInfo = new ProcessStartInfo("python.exe")
                     {
@@ -379,15 +379,15 @@ namespace CS
                         Arguments = "Python/webhook.py" + " " + timeTable.Webhook.Webhook_url + " " + "今" + dt.Hour + "時" + dt.Minute + "分です"
                     }
                 };
-                myProcess.Start();
-                myProcess.WaitForExit();
-                myProcess.Close();
+                myWebProcess.Start();
+                myWebProcess.WaitForExit();
+                myWebProcess.Close();
 
 
             }
 
 
-            var myProcess = new Process
+            var myZoomProcess = new Process
             {
                 StartInfo = new ProcessStartInfo("python.exe")
                 {
@@ -398,9 +398,9 @@ namespace CS
                 }
             };
 
-            myProcess.Start();
-            myProcess.WaitForExit();
-            myProcess.Close();
+            myZoomProcess.Start();
+            myZoomProcess.WaitForExit();
+            myZoomProcess.Close();
 
             //MessageBox.Show("ボタンが押されました");
         }
