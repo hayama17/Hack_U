@@ -650,7 +650,12 @@ namespace CS
         {
             useMeet.Zoom_pwd=zoompass.Text;
         }
-        
+        private void subject_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            
+        }
+
+
 
         private void CBOX1_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

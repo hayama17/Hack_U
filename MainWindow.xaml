@@ -38,7 +38,7 @@
             <CheckBox x:Name="CH3" Content="議事録" Grid.Column="1" Margin="17,181,0,0" VerticalAlignment="Top" Checked="CH3CheckBox_Checked" Unchecked="CH3CheckBox_Unchecked" Grid.ColumnSpan="2"/>
             <CheckBox x:Name="CH4" Content="チャット監視" Grid.Column="1" Margin="17,214,0,0" Checked="CH4CheckBox_Checked" Unchecked="CH4CheckBox_Unchecked" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
             <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="17,79,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14"><Run Language="ja-jp" /></TextBlock>
-            <TextBox x:Name="subject" Grid.Column="2" HorizontalAlignment="Left" Margin="258,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="16" TextChanged="ZoomID_TextChanged" Grid.ColumnSpan="4"/>
+            <TextBox x:Name="subject" Grid.Column="2" HorizontalAlignment="Left" Margin="258,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="16" TextChanged="subject_TextChanged" Grid.ColumnSpan="4"/>
             <TextBox x:Name="zoomID" Grid.Column="2" HorizontalAlignment="Left" Margin="258,129,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" Height="15" TextChanged="ZoomID_TextChanged" Grid.ColumnSpan="4"/>
             <CheckBox x:Name="CH1" Content="Webhook" VerticalAlignment="Top" Height="32" Margin="17,47,0,0" Checked="CH1CheckBox_Checked" Unchecked="CH1CheckBox_Unchecked" Width="120" Grid.Column="1" Grid.ColumnSpan="2"/>
             <TextBox x:Name="webhook" Grid.Column="2" HorizontalAlignment="Left" Margin="258,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" TextChanged="webhook_TextChanged" Grid.ColumnSpan="4"/>
