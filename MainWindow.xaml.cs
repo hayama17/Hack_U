@@ -648,7 +648,7 @@ namespace CS
         }
         private void Zoompass_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+            useMeet.Zoom_pwd=zoompass.Text;
         }
         
 
@@ -661,7 +661,7 @@ namespace CS
 
         private void ZoomID_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            useMeet.Zoom_id=zoomID.Text;
         }
 
         private void CBOX2_SelectionChanged(object sender, SelectionChangedEventArgs e)//時限
