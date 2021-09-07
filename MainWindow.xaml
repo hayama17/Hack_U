@@ -30,6 +30,7 @@
                 </MenuItem>
                 <MenuItem Header="編集" RenderTransformOrigin="1.889,0.503">
                     <MenuItem x:Name="TimeLine" Header="TimeLine" Click="TimeLine_Checked"/>
+                    <MenuItem x:Name="アップロード" Header="アップロード" Click="upload_Checked"/>
                 </MenuItem>
             </Menu>
             <CheckBox x:Name="CH2" Content="自動起動" VerticalAlignment="Top" Height="32" Margin="17,103,0,0" Checked="CH2CheckBox_Checked" Unchecked="CH2CheckBox_Unchecked" Width="120" Grid.Column="1" Grid.ColumnSpan="2"/>

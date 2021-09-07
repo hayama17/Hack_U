@@ -664,6 +664,12 @@ namespace CS
             useMeet.Zoom_id=zoomID.Text;
         }
 
+        private void upload_Checked(object sender, RoutedEventArgs e)
+        {
+            var dailog = new Web_Hook_menu();
+            dailog.ShowDialog();
+        }
+
         private void CBOX2_SelectionChanged(object sender, SelectionChangedEventArgs e)//時限
         {
             t = CBOX2.SelectedIndex;
