@@ -1,7 +1,10 @@
 # 選択した範囲を読み、文字を認識する
+# -> IDが流れたら自分もIDを入力する
+# -> ファイルが流れたら送信されたことを伝える
 import os
 import numpy
 from numpy.lib.type_check import imag
+import cv2
 
 import pyocr
 import pyocr.builders
@@ -29,9 +32,18 @@ img_rgb = None
 pixels = None
 img2 = None
 
-student_id = '19k1131'
+pdfimg = cv2.imread('./Image/pdfImage.png')
+wordimg = cv2.imread('./Image/wordImage.png')
+excelimg = cv2.imread('./Image/excelImage.png')
 
-# 座標選択　(後で消す)
+pdfflag = False
+wordflag = False
+excelflag = False
+
+student_id = '19k1131'
+idflag = False
+
+# 座標選択　(後で改良する)
 def PosGet():
     print("左上隅の座標を取得します")
     sleep(3)
@@ -53,27 +65,10 @@ def ImageCompare(img1, img2):
 # 選択した範囲のスクリーンショットを撮る
 def ScreenShot(x1, y1, x2, y2):
     sc = pyautogui.screenshot(region=(x1, y1, x2, y2))
-    sc.save('TransActor.jpg')
-    img = Image.open("TransActor.jpg")
+    sc.save('TransActor.png')
+    img = Image.open("TransActor.png")
     
     return img
-
-# ファイルが送信されたら通知 (色で判断)
-def FileNotification():
-    red = 230
-    green = 241
-    blue = 248
-    cnt = 0
-    for j in range(img_rgb.size[1]):
-        for i in range(img_rgb.size[0]):
-            if (pixels[i, j][0] > red - 2 and pixels[i, j][1] < red + 2):
-                if (pixels[i, j][0] > green - 2 and pixels[i, j][1] < green + 2):
-                    if (pixels[i, j][0] > blue - 2 and pixels[i, j][1] < blue + 2):
-                        cnt+=1
-    
-    if (cnt > 100):
-        print("ファイルが送られました")
-        print(cnt)
 
 # 画像を加工 (必要な文字のみ入手できるようにする)
 def Recolor():
@@ -112,6 +107,61 @@ def AutoTypeID(x1, y1, x2, y2):
     pyperclip.copy(student_id)
     pyautogui.hotkey('ctrl', 'v')
     pyautogui.hotkey('enter')
+    idflag = True
+
+
+# pdfファイルが送られたらTrueを返す
+def pdfFile(cv2img):
+    result = cv2.matchTemplate(pdfimg, cv2img, cv2.TM_CCORR_NORMED)
+    minVal, maxVal, minLoc, maxLoc = cv2.minMaxLoc(result)
+    if maxVal > 0.99:
+        return True
+    else:
+        return False
+
+# wordファイルが送られたらTrueを返す
+def wordFile(cv2img):
+    result = cv2.matchTemplate(wordimg, cv2img, cv2.TM_CCORR_NORMED)
+    minVal, maxVal, minLoc, maxLoc = cv2.minMaxLoc(result)
+    if maxVal > 0.99:
+        return True
+    else:
+        return False
+
+# excelファイルが送られたらTrueを返す
+def excelFile(cv2img):
+    result = cv2.matchTemplate(excelimg, cv2img, cv2.TM_CCORR_NORMED)
+    minVal, maxVal, minLoc, maxLoc = cv2.minMaxLoc(result)
+    if maxVal > 0.99:
+        return True
+    else:
+        return False
+
+# いずれかのファイルが送られたらメッセージを送る(出来たらwebhookを使う)
+def FileNotification():
+    global pdfflag, wordflag, excelflag
+    cv2img = cv2.imread('TransActor.png')
+    if pdfFile(cv2img):
+        if not pdfflag:
+            print('pdfファイルが送信されました')
+            pdfflag = True
+    else:
+        pdfflag = False
+    
+    if wordFile(cv2img):
+        if not wordflag:
+            print('wordファイルが送信されました')
+            wordflag = True
+    else:
+        wordflag = False
+
+    if excelFile(cv2img):
+        if not excelflag:
+            print('excelファイルが送信されました')
+            excelflag = True
+    else:
+        excelflag = False
+
 
 
 x1, y1, x2, y2 = PosGet()
@@ -131,8 +181,9 @@ while True:
             Recolor()
             textlis = TranslationActors()
             if JudgeTypeID(textlis, count):
-                AutoTypeID(x1, y1, x2, y2)
-                count = 0
+                if not idflag:
+                    AutoTypeID(x1, y1, x2, y2)
+                    count = 0
         else:
             count = 0
     img2 = img1
