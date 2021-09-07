@@ -657,6 +657,12 @@ namespace CS
             setMeeting(d, t);
 
         }
+
+        private void ZoomID_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
         private void CBOX2_SelectionChanged(object sender, SelectionChangedEventArgs e)//時限
         {
             t = CBOX2.SelectedIndex;
