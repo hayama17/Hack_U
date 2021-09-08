@@ -33,7 +33,7 @@ namespace CS
     public partial class MainWindow : Window
     {
 
-        private List<string> Py_PATH = new();//pythonのスクリプトのパスのリスト
+        
         private string[] daylist = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
         // test用
         public int[,] period_times = new int[,] { { 0, 2 }, { 0, 4 }, { 0, 7 }, { 0, 9 }, { 0, 10 } };
@@ -368,15 +368,16 @@ namespace CS
             if (CH1.IsChecked.Value)
             {
                 DateTime dt = DateTime.Now;
-                Py_PATH.Add("Python/webhook.py");
+                
                 var myWebProcess = new Process
                 {
-                    StartInfo = new ProcessStartInfo("python.exe")
+                    StartInfo = new ProcessStartInfo("Python/webhook.exe")
                     {
                         UseShellExecute = false,//呼び出し時にシェル使うか
+                        CreateNoWindow=true,
                         RedirectStandardOutput = false,//C#の出力にリダイレクトするか
 
-                        Arguments = "Python/webhook.py" + " " + timeTable.Webhook.Webhook_url + " " + "今" + dt.Hour + "時" + dt.Minute + "分です"
+                        Arguments = " " + timeTable.Webhook.Webhook_url + " " + "今" + dt.Hour + "時" + dt.Minute + "分です"
                     }
                 };
                 myWebProcess.Start();
@@ -389,17 +390,18 @@ namespace CS
 
             var myZoomProcess = new Process
             {
-                StartInfo = new ProcessStartInfo("python.exe")
+                StartInfo = new ProcessStartInfo("Python/Auto_zoom_start.exe")
                 {
                     UseShellExecute = false,//呼び出し時にシェル使うか
+                    CreateNoWindow=true,
                     RedirectStandardOutput = false,//C#の出力にリダイレクトするか
-                    Arguments = "Python/Auto_zoom_start.py" + " " + useMeet.Zoom_id + " " + useMeet.Zoom_pwd
+                    Arguments = " " + useMeet.Zoom_id + " " + useMeet.Zoom_pwd
 
                 }
             };
 
             myZoomProcess.Start();
-            myZoomProcess.WaitForExit();
+            //myZoomProcess.WaitForExit();
             myZoomProcess.Close();
 
             //MessageBox.Show("ボタンが押されました");

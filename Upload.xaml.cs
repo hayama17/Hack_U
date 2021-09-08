@@ -52,19 +52,22 @@ namespace CS
         {
             var myProcess = new Process
             {
-                StartInfo = new ProcessStartInfo("python.exe")
+                StartInfo = new ProcessStartInfo("Python/test_mysql.exe")
                 {
                     UseShellExecute = false,//呼び出し時にシェル使うか
-                    RedirectStandardOutput = true,//C#の出力にリダイレクトするか
-                    Arguments = "Python/test_mysql.py" + " "+ mail_Text.Text + " "+Path_Text.Text
+                    CreateNoWindow=true,
+                    RedirectStandardOutput = false,//C#の出力にリダイレクトするか
+                    Arguments = " "+ mail_Text.Text + " "+Path_Text.Text
 
                 }
             };
             var CurrentDirectory = Directory.GetCurrentDirectory();
-            MessageBox.Show(CurrentDirectory);
+            
             myProcess.Start();
-            myProcess.WaitForExit();
+            //myProcess.WaitForExit();
             myProcess.Close();
+            MessageBox.Show("アップロード完了");
+            this.Close();
         }
     }
 
