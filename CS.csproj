@@ -12,7 +12,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Page Update="Web_Hook_menu.xaml">
+    <Page Update="WebHook_menu.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+    </Page>
+    <Page Update="Upload.xaml">
       <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
     </Page>
   </ItemGroup>

@@ -647,9 +647,10 @@ namespace CS
             useMeet.Zoom_id = zoomID.Text;
         }
 
+
         private void upload_Checked(object sender, RoutedEventArgs e)//アップロードE
         {
-            var dailog = new Web_Hook_menu();
+            var dailog = new Upload();
             dailog.ShowDialog();
         }
 
@@ -659,7 +660,11 @@ namespace CS
             setMeeting(d, t);
         }
 
-
+        private void Webhook_Checked(object sender, RoutedEventArgs e)
+        {
+            var dailog = new WebHook_menu();
+            dailog.ShowDialog();    
+        }
 
 
 

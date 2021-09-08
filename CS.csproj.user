@@ -2,7 +2,10 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Page Update="Web_Hook_menu.xaml">
+    <Page Update="WebHook_menu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Upload.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

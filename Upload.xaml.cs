@@ -22,10 +22,10 @@ namespace CS
     /// <summary>
     /// TimeLine.xaml の相互作用ロジック
     /// </summary>
-    public partial class Web_Hook_menu : Window
+    public partial class Upload : Window
     {
         public string Json_PATH;
-        public Web_Hook_menu()
+        public Upload()
         {
             InitializeComponent();
         }
