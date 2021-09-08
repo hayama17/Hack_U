@@ -45,6 +45,9 @@ namespace CS
     /// </summary>
     public partial class TimeLine : Window
     {
+        int rowIndex = 0;
+        int columnIndex = 0;
+
         public TimeLine()
         {
             InitializeComponent();
@@ -63,10 +66,10 @@ namespace CS
         public DataTable CreateData()
         {
             DataTable dt = new DataTable();
-           
+
             string[] columns = new string[] { "月", "火", "水", "木", "金", "土" };
             columns.Select(i => dt.Columns.Add(i)).ToArray();
-            for(int i = 0;i < 6; i++)
+            for (int i = 0; i < 6; i++)
             {
                 DataRow dr = dt.NewRow();
                 /*dr[0] = "月" + i.ToString();
@@ -82,10 +85,43 @@ namespace CS
         }
         private void MouseDoubleClicked(object sender, MouseButtonEventArgs e)//セルをダブルクリックでメインに移動
         {
+            (rowIndex, columnIndex) = ClickCellIndex(TimeLineTable, e.GetPosition(TimeLineTable));
+            MessageBox.Show($"{columnIndex}行{rowIndex}列");
             var win = new MainWindow();
+
             win.ShowDialog();
+        }
+
+        public (int rowIndex, int columnIndex) ClickCellIndex(DataGrid dataGrid, Point pos)
+        {
+            DependencyObject dep = VisualTreeHelper.HitTest(dataGrid, pos)?.VisualHit;
+
+            while (dep != null)
+            {
+                dep = VisualTreeHelper.GetParent(dep);
+
+                while (dep != null)
+                {
+                    if (dep is DataGridCell)
+                    {
+                        columnIndex = (dep == null) ? -1 : (dep as DataGridCell).Column.DisplayIndex;
+                    }
+                    if (dep is DataGridRow)
+                    {
+                        rowIndex = (dep == null) ? -1 : (int)(dep as DataGridRow).GetIndex();
+                    }
+
+                    if (rowIndex >= 0 && columnIndex >= 0)
+                    {
+                        break;
+                    }
+
+                    dep = VisualTreeHelper.GetParent(dep);
+                }
+            }
+            return (rowIndex, columnIndex);
         }
     }
 
-   
+
 }
