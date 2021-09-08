@@ -405,19 +405,6 @@ namespace CS
             //MessageBox.Show("ボタンが押されました");
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            //MessageBox.Show("変更");
-            if (!zoomID.Text.Equals("ZoomID"))
-            {
-                //setMeeting(d,t);
-                useMeet.Zoom_id = zoomID.Text;
-            }
-
-
-        }
-
-        public string useMeetId, useMeetPwd;//これ使って
         public Meeting useMeet = new();
         public void setMeeting(int D, int T)//何曜日何限がセットされてるかのチェック1
         {
