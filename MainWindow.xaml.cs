@@ -290,7 +290,7 @@ namespace CS
         }
         void CH2CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-
+            useMeet.Zoom_Auto=true;
         }
         void CH3CheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -314,7 +314,7 @@ namespace CS
         }
         void CH2CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            useMeet.Zoom_Auto=false;
         }
         void import_Checked(object sender, RoutedEventArgs e)
         {
@@ -612,6 +612,8 @@ namespace CS
             // System.Windows.MessageBox.Show(D.ToString() + "," + T.ToString());
             zoomID.Text = useMeet.Zoom_id;
             zoompass.Text = useMeet.Zoom_pwd;
+            subject.Text=useMeet.Meeting_name;
+            CH2.IsChecked=useMeet.Zoom_Auto;//多分持ってこれる
 
         }
 
@@ -620,15 +622,15 @@ namespace CS
 
         private void webhook_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            //
         }
         private void Zoompass_TextChanged(object sender, TextChangedEventArgs e)
         {
             useMeet.Zoom_pwd = zoompass.Text;
         }
-        private void subject_TextChanged(object sender, TextChangedEventArgs e)
+        private void Subject_TextChanged(object sender, TextChangedEventArgs e)
         {
-            
+            useMeet.Meeting_name = subject.Text;
         }
 
 
