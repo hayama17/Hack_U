@@ -663,9 +663,9 @@ namespace CS
 
         private void Webhook_Checked(object sender, RoutedEventArgs e)
         {
-            var dailog = new WebHook_menu();
-            dailog.ShowDialog();    
-        }
+            var dailog = new WebHook_menu(timeTable.Webhook.Webhook_url);
+            dailog.ShowDialog();
+            timeTable.Webhook.Webhook_url = dailog.return_string;        }
 
 
 

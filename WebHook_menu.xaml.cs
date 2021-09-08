@@ -24,7 +24,7 @@ namespace CS
     /// </summary>
     public partial class WebHook_menu: Window
     {
-        public string Json_PATH;
+        public string return_string;
         public WebHook_menu(string post_url)
         {
             InitializeComponent();
@@ -40,7 +40,8 @@ namespace CS
 
         private void Clicked_Upload_Bt(object sender, RoutedEventArgs e)
         {
-            
+            return_string = url.Text;
+            this.Close();
         }
     }
 
