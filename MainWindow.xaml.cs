@@ -286,7 +286,7 @@ namespace CS
 
         void CH1CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-
+            useMeet.Webhook_on=true;
         }
         void CH2CheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -302,7 +302,7 @@ namespace CS
         }
         void CH1CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-
+            useMeet.Webhook_on=false;
         }
         void CH3CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
@@ -613,6 +613,7 @@ namespace CS
             zoomID.Text = useMeet.Zoom_id;
             zoompass.Text = useMeet.Zoom_pwd;
             subject.Text=useMeet.Meeting_name;
+            CH1.IsChecked=useMeet.Webhook_on;
             CH2.IsChecked=useMeet.Zoom_Auto;//多分持ってこれる
 
         }
