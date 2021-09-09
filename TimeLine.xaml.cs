@@ -69,7 +69,7 @@ namespace CS
 
             string[] columns = new string[] { "月", "火", "水", "木", "金", "土" };
             columns.Select(i => dt.Columns.Add(i)).ToArray();
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 5; i++)
             {
                 DataRow dr = dt.NewRow();
                 /*dr[0] = "月" + i.ToString();
@@ -92,7 +92,7 @@ namespace CS
             main.CBOX2.SelectedIndex=rowIndex;
             // var win = new MainWindow();
             // win.ShowDialog();
-            this.Close();
+            //this.Close();
         }
 
         public (int rowIndex, int columnIndex) ClickCellIndex(DataGrid dataGrid, Point pos)

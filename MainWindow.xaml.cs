@@ -359,7 +359,7 @@ namespace CS
 
             var win = new TimeLine();
             win.main=this;
-            win.ShowDialog();
+            win.Show();
 
         }
 
