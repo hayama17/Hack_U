@@ -465,22 +465,26 @@ namespace CS
             //myZoomProcess.WaitForExit();
             myZoomProcess.Close();
 
-                var myChatProcess=new Process{
-                    StartInfo=new ProcessStartInfo("Python/ImageProcessing.exe")
-                {
-                    UseShellExecute =true,
-                    CreateNoWindow=true,
-                    RedirectStandardOutput=false,
-                    Arguments = " "+ timeTable.Webhook + "1"
-                }
-                };
+                
                 
                 
 
             if(CH4.IsChecked.Value){
+                var myChatProcess=new Process{
+                    StartInfo=new ProcessStartInfo("Python/ImageProcessing.exe")
+                {
+                    UseShellExecute =false,
+                    CreateNoWindow=true,
+                    RedirectStandardOutput=false,
+                    Arguments = " "+ timeTable.Webhook.Webhook_url +" "+ "3"
+                }
+                };
                 
-
+                
                 myChatProcess.Start();
+                
+                
+                
                 
                 //myChatProcess.Close();
             }
