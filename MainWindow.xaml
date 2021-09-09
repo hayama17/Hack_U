@@ -1,4 +1,4 @@
-﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:CS" xmlns:ui="http://schemas.modernwpf.com/2019" x:Class="CS.MainWindow" mc:Ignorable="d" Title="ZOOM in 1" Height="380" Width="400">
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:CS" xmlns:ui="http://schemas.modernwpf.com/2019" x:Class="CS.MainWindow" mc:Ignorable="d" Title="ZOOM in 1" Height="380" Width="400" Foreground="#FF1E1E1E">
 
     <Grid Height="348" VerticalAlignment="Top">
         <Menu VerticalAlignment="Top" HorizontalAlignment="Left">
@@ -34,6 +34,7 @@
             <ComboBox x:Name="CBOX1" Margin="26,39,0,72" Width="136"  ItemsSource="{Binding Day_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectionChanged="CBOX1_SelectionChanged" VerticalAlignment="Stretch"/>
             <ComboBox x:Name="CBOX2" Margin="208,39,0,0" Width="138" ItemsSource="{Binding Period_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectionChanged="CBOX2_SelectionChanged" Height="33"/>
             <Button x:Name="open_bt" Content="起動" VerticalAlignment="Top" Height="38" Click="button_clicked" Margin="295,147,18,0" Background="#4169e1" Foreground="WhiteSmoke" Grid.Row="2" HorizontalAlignment="Stretch"/>
+            <Image HorizontalAlignment="Center" Height="262" Margin="0,67,0,0" VerticalAlignment="Top" Width="236" Source="/アイコン透過黒.png" Grid.RowSpan="3" OpacityMask="#19000000"/>
         </Grid>
 
     </Grid>
