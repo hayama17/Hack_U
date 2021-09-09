@@ -126,6 +126,18 @@ namespace CS
         }
 
         public MainWindow main{get;set;}
+
+
+
+        private void MouseEntered(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void MouseLeaved(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 
 
