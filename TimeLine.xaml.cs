@@ -88,7 +88,7 @@ namespace CS
             (rowIndex, columnIndex) = ClickCellIndex(TimeLineTable, e.GetPosition(TimeLineTable));
             //MessageBox.Show($"{columnIndex}行{rowIndex}列");
 
-            main.CBOX1.SelectedIndex=columnIndex;
+            main.CBOX1.SelectedIndex=columnIndex+1;
             main.CBOX2.SelectedIndex=rowIndex;
             // var win = new MainWindow();
             // win.ShowDialog();
