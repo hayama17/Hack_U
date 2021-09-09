@@ -19,12 +19,12 @@
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="199*"/>
             </Grid.RowDefinitions>
-            <Line X1="10" Y1="10" X2="360" Y2="10" Stroke="Black" Margin="10,127,-10,77" Grid.RowSpan="3"/>
+            <Line X1="10" Y1="10" X2="360" Y2="10" Stroke="Black" Margin="14,74,-14,130" Grid.RowSpan="3"/>
             <CheckBox x:Name="CH1" Content="通知" VerticalAlignment="Top" Height="32" Margin="87,153,0,0" Checked="CH1CheckBox_Checked" Unchecked="CH1CheckBox_Unchecked" Width="120" Grid.Row="2"/>
             <CheckBox x:Name="CH2" Content="自動起動" VerticalAlignment="Top" Height="32" Margin="85,0,0,0" Checked="CH2CheckBox_Checked" Unchecked="CH2CheckBox_Unchecked" Width="120" Grid.Row="2"/>
             <TextBlock Margin="10,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" HorizontalAlignment="Left" Width="72" Height="20" Grid.Row="2"><Run Language="ja-jp" Text="Webhook"/></TextBlock>
-            <TextBlock Margin="10,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Height="43" HorizontalAlignment="Left" FontWeight="Normal" FontStyle="Normal" TextDecorations="{x:Null}" Width="42"><Run Language="ja-jp" Text="授業名"/></TextBlock>
-            <TextBox x:Name="subject" Margin="57,90,8,22" TextWrapping="Wrap" TextChanged="Subject_TextChanged"/>
+            <TextBlock Margin="10,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Height="43" HorizontalAlignment="Left" FontWeight="Normal" FontStyle="Normal" TextDecorations="{x:Null}" Width="42" Grid.RowSpan="3"><Run Language="ja-jp" Text="授業名"/></TextBlock>
+            <TextBox x:Name="subject" Margin="57,102,8,10" TextWrapping="Wrap" TextChanged="Subject_TextChanged"/>
             <TextBlock Margin="10,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="14" Grid.Row="2" HorizontalAlignment="Left" Width="58" Height="19"><Run Language="ja-jp" Text="ZOOM"/></TextBlock>
             <CheckBox x:Name="CH4" Content="チャット監視" Margin="214,0,0,0" Checked="CH4CheckBox_Checked" Unchecked="CH4CheckBox_Unchecked" VerticalAlignment="Top" Grid.Row="2" Width="120"/>
             <TextBox x:Name="zoompass" Margin="258,98,8,69" TextWrapping="Wrap" TextChanged="Zoompass_TextChanged" Grid.Row="2"/>
@@ -35,7 +35,7 @@
             <ComboBox x:Name="CBOX2" Margin="208,39,0,0" Width="138" ItemsSource="{Binding Period_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectionChanged="CBOX2_SelectionChanged" Height="33"/>
             <Button x:Name="open_bt" Content="起動" VerticalAlignment="Top" Height="38" Click="button_clicked" Margin="295,147,18,0" Background="#FFEACF20" Foreground="WhiteSmoke" Grid.Row="2" HorizontalAlignment="Stretch"/>
         </Grid>
-        
+
     </Grid>
 
 

@@ -1,4 +1,6 @@
 import mysql.connector
+from mysql.connector.locales.eng import client_error
+
 import json
 import codecs
 import sys
