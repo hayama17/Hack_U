@@ -19,6 +19,7 @@
                 <RowDefinition Height="5*"/>
                 <RowDefinition Height="199*"/>
             </Grid.RowDefinitions>
+            <Image HorizontalAlignment="Center" Height="262" Margin="0,67,0,0" VerticalAlignment="Top" Width="236" Source="/アイコン透過黒.png" Grid.RowSpan="3" OpacityMask="#19000000"/>
             <Line X1="10" Y1="10" X2="360" Y2="10" Stroke="Black" Margin="14,74,-14,130" Grid.RowSpan="3"/>
             <CheckBox x:Name="CH1" Content="通知" VerticalAlignment="Top" Height="32" Margin="87,153,0,0" Checked="CH1CheckBox_Checked" Unchecked="CH1CheckBox_Unchecked" Width="120" Grid.Row="2"/>
             <CheckBox x:Name="CH2" Content="自動起動" VerticalAlignment="Top" Height="32" Margin="85,0,0,0" Checked="CH2CheckBox_Checked" Unchecked="CH2CheckBox_Unchecked" Width="120" Grid.Row="2"/>
@@ -34,7 +35,7 @@
             <ComboBox x:Name="CBOX1" Margin="26,39,0,72" Width="136"  ItemsSource="{Binding Day_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectionChanged="CBOX1_SelectionChanged" VerticalAlignment="Stretch"/>
             <ComboBox x:Name="CBOX2" Margin="208,39,0,0" Width="138" ItemsSource="{Binding Period_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectionChanged="CBOX2_SelectionChanged" Height="33"/>
             <Button x:Name="open_bt" Content="起動" VerticalAlignment="Top" Height="38" Click="button_clicked" Margin="295,147,18,0" Background="#4169e1" Foreground="WhiteSmoke" Grid.Row="2" HorizontalAlignment="Stretch"/>
-            <Image HorizontalAlignment="Center" Height="262" Margin="0,67,0,0" VerticalAlignment="Top" Width="236" Source="/アイコン透過黒.png" Grid.RowSpan="3" OpacityMask="#19000000"/>
+            
         </Grid>
 
     </Grid>
