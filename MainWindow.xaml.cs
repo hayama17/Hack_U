@@ -203,7 +203,7 @@ namespace CS
                 {
                     result = Thursday;
                 }
-                if (day == 4)
+                if (day == 5)
                 {
                     result = Friday;
                 }
