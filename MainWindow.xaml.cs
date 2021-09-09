@@ -358,7 +358,8 @@ namespace CS
         {
 
             var win = new TimeLine();
-            win.Show();
+            win.main=this;
+            win.ShowDialog();
 
         }
 

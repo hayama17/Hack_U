@@ -86,10 +86,13 @@ namespace CS
         private void MouseDoubleClicked(object sender, MouseButtonEventArgs e)//セルをダブルクリックでメインに移動
         {
             (rowIndex, columnIndex) = ClickCellIndex(TimeLineTable, e.GetPosition(TimeLineTable));
-            MessageBox.Show($"{columnIndex}行{rowIndex}列");
-            var win = new MainWindow();
+            //MessageBox.Show($"{columnIndex}行{rowIndex}列");
 
-            win.ShowDialog();
+            main.CBOX1.SelectedIndex=columnIndex;
+            main.CBOX2.SelectedIndex=rowIndex;
+            // var win = new MainWindow();
+            // win.ShowDialog();
+            this.Close();
         }
 
         public (int rowIndex, int columnIndex) ClickCellIndex(DataGrid dataGrid, Point pos)
@@ -121,6 +124,8 @@ namespace CS
             }
             return (rowIndex, columnIndex);
         }
+
+        public MainWindow main{get;set;}
     }
 
 
