@@ -33,7 +33,7 @@
             <TextBlock Margin="190,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" Height="32" Grid.Row="2" HorizontalAlignment="Left" Width="49"><Run Language="ja-jp" Text="Pass"/></TextBlock>
             <ComboBox x:Name="CBOX1" Margin="26,39,0,72" Width="136"  ItemsSource="{Binding Day_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectionChanged="CBOX1_SelectionChanged" VerticalAlignment="Stretch"/>
             <ComboBox x:Name="CBOX2" Margin="208,39,0,0" Width="138" ItemsSource="{Binding Period_Dic}" SelectedValuePath="Key" DisplayMemberPath="Value" SelectionChanged="CBOX2_SelectionChanged" Height="33"/>
-            <Button x:Name="open_bt" Content="起動" VerticalAlignment="Top" Height="38" Click="button_clicked" Margin="295,147,18,0" Background="#FFEACF20" Foreground="WhiteSmoke" Grid.Row="2" HorizontalAlignment="Stretch"/>
+            <Button x:Name="open_bt" Content="起動" VerticalAlignment="Top" Height="38" Click="button_clicked" Margin="295,147,18,0" Background="#4169e1" Foreground="WhiteSmoke" Grid.Row="2" HorizontalAlignment="Stretch"/>
         </Grid>
 
     </Grid>
