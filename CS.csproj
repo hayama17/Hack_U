@@ -11,7 +11,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="アイコン透過.png" />
+    <None Remove="アイコン透過_negate.png" />
+    <None Remove="アイコン透過黒.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ModernWpfUI" Version="0.9.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="アイコン透過.png" />
+    <Resource Include="アイコン透過_negate.png" />
+    <Resource Include="アイコン透過黒.png" />
   </ItemGroup>
 
   <ItemGroup>

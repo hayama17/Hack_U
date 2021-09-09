@@ -33,7 +33,7 @@ namespace CS
     public partial class MainWindow : Window
     {
 
-        
+
         private string[] daylist = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
         // test用
         public int[,] period_times = new int[,] { { 0, 2 }, { 0, 4 }, { 0, 7 }, { 0, 9 }, { 0, 10 } };
@@ -106,7 +106,7 @@ namespace CS
             public Meeting int_to_meeting(int time)
             {
                 Meeting result = First;
-                if(time == 1)
+                if (time == 1)
                 {
                     result = Second;
                 }
@@ -188,7 +188,8 @@ namespace CS
             {
                 Day result;
                 result = Sunday;
-                if (day == 1){ 
+                if (day == 1)
+                {
                     result = Monday;
                 }
                 if (day == 2)
@@ -214,8 +215,8 @@ namespace CS
                 return result;
             }
 
-            
-           
+
+
 
         }
         //以上、Jsonを扱うためのクラス群
@@ -334,17 +335,17 @@ namespace CS
 
         }
 
-        
+
 
 
 
         void CH1CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            useMeet.Webhook_on=true;
+            useMeet.Webhook_on = true;
         }
         void CH2CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            useMeet.Zoom_Auto=true;
+            useMeet.Zoom_Auto = true;
         }
         void CH3CheckBox_Checked(object sender, RoutedEventArgs e)
         {
@@ -352,26 +353,26 @@ namespace CS
         }
         void CH4CheckBox_Checked(object sender, RoutedEventArgs e)
         {
-            useMeet.chat_on=true;
+            useMeet.chat_on = true;
         }
         void CH1CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            useMeet.Webhook_on=false;
+            useMeet.Webhook_on = false;
         }
         void CH3CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
 
         }
-        
-        
+
+
         void CH4CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            useMeet.chat_on=false;               
-            
+            useMeet.chat_on = false;
+
         }
         void CH2CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            useMeet.Zoom_Auto=false;
+            useMeet.Zoom_Auto = false;
         }
         void import_Checked(object sender, RoutedEventArgs e)
         {
@@ -421,21 +422,21 @@ namespace CS
 
         }
 
-        
-                
+
+
 
         void button_clicked(object sender, RoutedEventArgs e)
         {
             if (CH1.IsChecked.Value)
             {
                 DateTime dt = DateTime.Now;
-                
+
                 var myWebProcess = new Process
                 {
                     StartInfo = new ProcessStartInfo("Python/webhook.exe")
                     {
                         UseShellExecute = false,//呼び出し時にシェル使うか
-                        CreateNoWindow=true,
+                        CreateNoWindow = true,
                         RedirectStandardOutput = false,//C#の出力にリダイレクトするか
 
                         Arguments = " " + timeTable.Webhook.Webhook_url + " " + "今" + dt.Hour + "時" + dt.Minute + "分です"
@@ -454,7 +455,7 @@ namespace CS
                 StartInfo = new ProcessStartInfo("Python/Auto_zoom_start.exe")
                 {
                     UseShellExecute = false,//呼び出し時にシェル使うか
-                    CreateNoWindow=true,
+                    CreateNoWindow = true,
                     RedirectStandardOutput = false,//C#の出力にリダイレクトするか
                     Arguments = " " + useMeet.Zoom_id + " " + useMeet.Zoom_pwd
 
@@ -465,6 +466,7 @@ namespace CS
             //myZoomProcess.WaitForExit();
             myZoomProcess.Close();
 
+<<<<<<< HEAD
                 
                 
                 
@@ -486,6 +488,27 @@ namespace CS
                 
                 
                 
+=======
+            var myChatProcess = new Process
+            {
+                StartInfo = new ProcessStartInfo("Python/ImageProcessing.exe")
+                {
+                    UseShellExecute = false,
+                    CreateNoWindow = true,
+                    RedirectStandardOutput = false,
+                    Arguments = " " + timeTable.Webhook.Webhook_url + " " + "1"
+                }
+            };
+
+
+
+            if (CH4.IsChecked.Value)
+            {
+
+
+                myChatProcess.Start();
+
+>>>>>>> a547c251d6d30b2beedf22e53c823242139d365d
                 //myChatProcess.Close();
             }
 
@@ -493,7 +516,7 @@ namespace CS
         }
 
         public Meeting useMeet = new();
-        
+
         public void setMeeting(int D, int T)//何曜日何限がセットされてるかのチェック1
         {
             if (D == 1)
@@ -698,12 +721,12 @@ namespace CS
             }
 
             // System.Windows.MessageBox.Show(D.ToString() + "," + T.ToString());
-             zoomID.Text = useMeet.Zoom_id;
-             zoompass.Text = useMeet.Zoom_pwd;
-             subject.Text=useMeet.Meeting_name;
-             CH1.IsChecked=useMeet.Webhook_on;
-             CH2.IsChecked=useMeet.Zoom_Auto;//多分持ってこれる
-             CH4.IsChecked=useMeet.chat_on;
+            zoomID.Text = useMeet.Zoom_id;
+            zoompass.Text = useMeet.Zoom_pwd;
+            subject.Text = useMeet.Meeting_name;
+            CH1.IsChecked = useMeet.Webhook_on;
+            CH2.IsChecked = useMeet.Zoom_Auto;//多分持ってこれる
+            CH4.IsChecked = useMeet.chat_on;
 
 
         }
@@ -755,7 +778,8 @@ namespace CS
         {
             var dailog = new WebHook_menu(timeTable.Webhook.Webhook_url);
             dailog.ShowDialog();
-            timeTable.Webhook.Webhook_url = dailog.return_string;        }
+            timeTable.Webhook.Webhook_url = dailog.return_string;
+        }
 
 
 
