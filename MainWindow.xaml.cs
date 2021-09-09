@@ -464,52 +464,36 @@ namespace CS
 
             myZoomProcess.Start();
             //myZoomProcess.WaitForExit();
-            myZoomProcess.Close();
-
-<<<<<<< HEAD
-                
+            myZoomProcess.Close();               
                 
                 
 
             if(CH4.IsChecked.Value){
                 var myChatProcess=new Process{
-                    StartInfo=new ProcessStartInfo("Python/ImageProcessing.exe")
-                {
+                    StartInfo=new ProcessStartInfo()
+                {   
+                    FileName="Python/ImageProcessing.exe",
                     UseShellExecute =false,
                     CreateNoWindow=true,
                     RedirectStandardOutput=false,
-                    Arguments = " "+ timeTable.Webhook.Webhook_url +" "+ "3"
+                    
+                    
+                    
+                    
+                    Arguments = " "+ timeTable.Webhook.Webhook_url +" "+ "1"
                 }
                 };
                 
                 
                 myChatProcess.Start();
-                
-                
-                
-                
-=======
-            var myChatProcess = new Process
-            {
-                StartInfo = new ProcessStartInfo("Python/ImageProcessing.exe")
-                {
-                    UseShellExecute = false,
-                    CreateNoWindow = true,
-                    RedirectStandardOutput = false,
-                    Arguments = " " + timeTable.Webhook.Webhook_url + " " + "1"
-                }
-            };
-
-
-
-            if (CH4.IsChecked.Value)
-            {
-
-
-                myChatProcess.Start();
-
->>>>>>> a547c251d6d30b2beedf22e53c823242139d365d
+                //myChatProcess.WaitForExit();
                 //myChatProcess.Close();
+                myChatProcess.Close();
+                
+                
+                
+                
+                        //myChatProcess.Close();
             }
 
             //MessageBox.Show("ボタンが押されました");
