@@ -102,6 +102,28 @@ namespace CS
                 this.Fourth = new Meeting();
                 this.Fifth = new Meeting();
             }
+
+            public Meeting int_to_meeting(int time)
+            {
+                Meeting result = First;
+                if(time == 1)
+                {
+                    result = Second;
+                }
+                if (time == 2)
+                {
+                    result = Third;
+                }
+                if (time == 3)
+                {
+                    result = Fourth;
+                }
+                if (time == 4)
+                {
+                    result = Fifth;
+                }
+                return result;
+            }
         }
 
         public class Webhook
@@ -162,7 +184,36 @@ namespace CS
                 this.Saturday = JsonSerializer.Deserialize<TimeTable>(Json_Str).Saturday;//timeTableに突っ込む
                 this.Webhook = JsonSerializer.Deserialize<TimeTable>(Json_Str).Webhook;//timeTableに突っ込む
             }
-
+            public Day int_to_DAY(int day)
+            {
+                Day result;
+                result = Sunday;
+                if (day == 1){ 
+                    result = Monday;
+                }
+                if (day == 2)
+                {
+                    result = Tuesday;
+                }
+                if (day == 3)
+                {
+                    result = Wednesday;
+                }
+                if (day == 4)
+                {
+                    result = Thursday;
+                }
+                if (day == 4)
+                {
+                    result = Friday;
+                }
+                if (day == 6)
+                {
+                    result = Saturday;
+                }
+                return result;
+            }
+           
 
         }
         //以上、Jsonを扱うためのクラス群
@@ -357,9 +408,10 @@ namespace CS
         void TimeLine_Checked(object sender, RoutedEventArgs e)
         {
 
-            var win = new TimeLine();
-            win.main=this;
-            win.Show();
+            var win = new TimeLine(timeTable);
+            win.main = this;
+            win.mt = timeTable;
+            win.ShowDialog();
 
         }
 
@@ -613,12 +665,12 @@ namespace CS
             }
 
             // System.Windows.MessageBox.Show(D.ToString() + "," + T.ToString());
-            zoomID.Text = useMeet.Zoom_id;
-            zoompass.Text = useMeet.Zoom_pwd;
-            subject.Text=useMeet.Meeting_name;
-            CH1.IsChecked=useMeet.Webhook_on;
-            CH2.IsChecked=useMeet.Zoom_Auto;//多分持ってこれる
-            CH4.IsChecked=useMeet.chat_on;
+             zoomID.Text = useMeet.Zoom_id;
+             zoompass.Text = useMeet.Zoom_pwd;
+             subject.Text=useMeet.Meeting_name;
+             CH1.IsChecked=useMeet.Webhook_on;
+             CH2.IsChecked=useMeet.Zoom_Auto;//多分持ってこれる
+             CH4.IsChecked=useMeet.chat_on;
 
         }
 

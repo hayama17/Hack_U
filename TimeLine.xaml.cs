@@ -47,11 +47,14 @@ namespace CS
     {
         int rowIndex = 0;
         int columnIndex = 0;
+        public MainWindow.TimeTable mt { get; set; }
 
-        public TimeLine()
+        public TimeLine(MainWindow.TimeTable main_mt)      
         {
             InitializeComponent();
             EnableRowNum(TimeLineTable);//行番号を表示
+            
+            mt = main_mt;
             TimeLineTable.DataContext = CreateData();//セルの中身を作成
         }
 
@@ -72,13 +75,13 @@ namespace CS
             for (int i = 0; i < 5; i++)
             {
                 DataRow dr = dt.NewRow();
-                /*dr[0] = "月" + i.ToString();
-                dr[1] = "火" + i.ToString();
-                dr[2] = "水" + i.ToString();
-                dr[3] = "木" + i.ToString();
-                dr[4] = "金" + i.ToString();
-                dr[5] = "土" + i.ToString();*/
-                dr[i] = "";
+                dr[0] = mt.int_to_DAY(1).int_to_meeting(i).Meeting_name;//"月" + i.ToString();
+                dr[1] = mt.int_to_DAY(2).int_to_meeting(i).Meeting_name;//"火" + i.ToString();
+                dr[2] = mt.int_to_DAY(3).int_to_meeting(i).Meeting_name;//"水" + i.ToString();
+                dr[3] = mt.int_to_DAY(4).int_to_meeting(i).Meeting_name;//"木" + i.ToString();
+                dr[4] = mt.int_to_DAY(5).int_to_meeting(i).Meeting_name;//"金" + i.ToString();
+                dr[5] = mt.int_to_DAY(6).int_to_meeting(i).Meeting_name;//"土" + i.ToString();
+
                 dt.Rows.Add(dr);
             }
             return dt;
@@ -92,7 +95,7 @@ namespace CS
             main.CBOX2.SelectedIndex=rowIndex;
             // var win = new MainWindow();
             // win.ShowDialog();
-            //this.Close();
+            this.Close();        
         }
 
         public (int rowIndex, int columnIndex) ClickCellIndex(DataGrid dataGrid, Point pos)
@@ -129,12 +132,12 @@ namespace CS
 
 
 
-        private void MouseEntered(object sender, MouseEventArgs e)
+        private void MouseLeaved(object sender, MouseEventArgs e)
         {
-            
+
         }
 
-        private void MouseLeaved(object sender, MouseEventArgs e)
+        private void MouseEntered(object sender, MouseEventArgs e)
         {
 
         }
