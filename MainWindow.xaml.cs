@@ -213,6 +213,8 @@ namespace CS
                 }
                 return result;
             }
+
+            
            
 
         }
@@ -332,6 +334,7 @@ namespace CS
 
         }
 
+        
 
 
 
@@ -359,9 +362,12 @@ namespace CS
         {
 
         }
+        
+        
         void CH4CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
-            useMeet.chat_on=false;
+            useMeet.chat_on=false;               
+            
         }
         void CH2CheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
@@ -415,6 +421,8 @@ namespace CS
 
         }
 
+        
+                
 
         void button_clicked(object sender, RoutedEventArgs e)
         {
@@ -457,10 +465,31 @@ namespace CS
             //myZoomProcess.WaitForExit();
             myZoomProcess.Close();
 
+                var myChatProcess=new Process{
+                    StartInfo=new ProcessStartInfo("Python/ImageProcessing.exe")
+                {
+                    UseShellExecute =true,
+                    CreateNoWindow=true,
+                    RedirectStandardOutput=false,
+                    Arguments = " "+ timeTable.Webhook + "1"
+                }
+                };
+                
+                
+
+            if(CH4.IsChecked.Value){
+                
+
+                myChatProcess.Start();
+                
+                //myChatProcess.Close();
+            }
+
             //MessageBox.Show("ボタンが押されました");
         }
 
         public Meeting useMeet = new();
+        
         public void setMeeting(int D, int T)//何曜日何限がセットされてるかのチェック1
         {
             if (D == 1)
@@ -671,6 +700,7 @@ namespace CS
              CH1.IsChecked=useMeet.Webhook_on;
              CH2.IsChecked=useMeet.Zoom_Auto;//多分持ってこれる
              CH4.IsChecked=useMeet.chat_on;
+
 
         }
 
