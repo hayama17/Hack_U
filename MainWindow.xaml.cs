@@ -36,9 +36,10 @@ namespace CS
 
         private string[] daylist = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
         // test用
-        public int[,] period_times = new int[,] { { 0, 2 }, { 0, 4 }, { 0, 7 }, { 0, 9 }, { 0, 10 } };
+        // public int[,] period_times = new int[,] { { 0, 2 }, { 0, 4 }, { 0, 7 }, { 0, 9 }, { 0, 10 } };
 
-        // public int[,] period_times = new int[,] { { 9, 0 }, { 10, 40 }, { 13, 20 }, { 15, 10 }, { 17, 0 } };
+        public int[,] period_times = new int[,] { { 9, 0 }, { 10, 40 }, { 13, 20 }, { 15, 10 }, { 17, 0 } };
+
         public Dictionary<string, string> Day_Dic { get; set; }//コンボボックスの曜日の要素
         public Dictionary<string, string> Period_Dic { get; set; }//コンボボックスの何限の要素
 
@@ -134,6 +135,19 @@ namespace CS
         public class TimeTable
         {   //時間割クラス
 
+
+            public TimeTable(Day monday, Day tuesday, Day wednesday, Day thursday, Day friday, Day saturday, Day sunday, Webhook webhook)
+            {
+                this.Monday = monday;
+                this.Tuesday = tuesday;
+                this.Wednesday = wednesday;
+                this.Thursday = thursday;
+                this.Friday = friday;
+                this.Saturday = saturday;
+                this.Sunday = sunday;
+                this.Webhook = webhook;
+
+            }
             [JsonPropertyName("Monday")]
             public Day Monday { get; set; }
 
@@ -309,13 +323,13 @@ namespace CS
                    {"Saturday","土曜日" }
                 };
 
-            Period_Dic = new()
+            Period_Dic = new Dictionary<string, string>()
             {
-                { "First", "1限" },
-                { "Second", "2限" },
-                { "Third", "3限" },
-                { "Fourth", "4限" },
-                { "Fifth", "5限" }
+                {"First", "1限" },
+                {"Second", "2限" },
+                {"Third", "3限" },
+                {"Fourth", "4限" },
+                {"Fifth", "5限" }
             };
 
             timeTable = new();
@@ -429,8 +443,10 @@ namespace CS
         {
             if (CH1.IsChecked.Value)
             {
-                DateTime dt = DateTime.Now;
+                //string run_period = Day_Dic[CBOX2.SelectedValue.ToString()];
+                //string run_dayofweek =Period_Dic[CBOX1.SelectedValue.ToString()];
 
+                int run_period = CBOX2.SelectedIndex+1;
                 var myWebProcess = new Process
                 {
                     StartInfo = new ProcessStartInfo("Python/webhook.exe")
@@ -439,7 +455,7 @@ namespace CS
                         CreateNoWindow = true,
                         RedirectStandardOutput = false,//C#の出力にリダイレクトするか
 
-                        Arguments = " " + timeTable.Webhook.Webhook_url + " " + "今" + dt.Hour + "時" + dt.Minute + "分です"
+                        Arguments = " " + timeTable.Webhook.Webhook_url + " "+ run_period + "限の授業が開始しました。"
                     }
                 };
                 myWebProcess.Start();
@@ -464,36 +480,39 @@ namespace CS
 
             myZoomProcess.Start();
             //myZoomProcess.WaitForExit();
-            myZoomProcess.Close();               
-                
-                
+            myZoomProcess.Close();
 
-            if(CH4.IsChecked.Value){
-                var myChatProcess=new Process{
-                    StartInfo=new ProcessStartInfo()
-                {   
-                    FileName="Python/ImageProcessing.exe",
-                    UseShellExecute =false,
-                    CreateNoWindow=true,
-                    RedirectStandardOutput=false,
-                    
-                    
-                    
-                    
-                    Arguments = " "+ timeTable.Webhook.Webhook_url +" "+ "1"
-                }
+
+
+            if (CH4.IsChecked.Value)
+            {
+
+                var myChatProcess = new Process
+                {
+                    StartInfo = new ProcessStartInfo()
+                    {
+                        FileName = "Python/ImageProcessing.exe",
+                        UseShellExecute = false,
+                        CreateNoWindow = true,
+                        RedirectStandardOutput = false,
+
+
+
+
+                        Arguments = " " + timeTable.Webhook.Webhook_url + " " + "1"
+                    }
                 };
-                
-                
+
+
                 myChatProcess.Start();
                 //myChatProcess.WaitForExit();
                 //myChatProcess.Close();
                 myChatProcess.Close();
-                
-                
-                
-                
-                        //myChatProcess.Close();
+
+
+
+
+                //myChatProcess.Close();
             }
 
             //MessageBox.Show("ボタンが押されました");
