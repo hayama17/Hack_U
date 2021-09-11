@@ -779,6 +779,7 @@ namespace CS
 
         private void Webhook_Checked(object sender, RoutedEventArgs e)
         {
+            // MessageBox.Show(timeTable.Webhook.Webhook_url);
             var dailog = new WebHook_menu(timeTable.Webhook.Webhook_url);
             dailog.ShowDialog();
             timeTable.Webhook.Webhook_url = dailog.return_string;
