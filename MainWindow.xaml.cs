@@ -346,6 +346,33 @@ namespace CS
             Time_scadule_5(period_times[4, 0], period_times[4, 1]);//スケジューラー5限分生成
             CBOX1.SelectedIndex = 1;//コンボボックスの初期値
             CBOX2.SelectedIndex = 0;//コンボボックスの初期値 
+            string default_json ="default_timetable.json";
+            try{
+                timeTable.Path_to_Class(default_json);
+            }catch(FileNotFoundException){
+                MessageBox.Show("default_timetableが見つかりませんでした\njsonファイルを選択してください");
+                Microsoft.Win32.OpenFileDialog openFileDialog = new();
+                openFileDialog.Filter = "Json(.json)|*.json|All Files (*.*)|*.*";
+                bool? result = openFileDialog.ShowDialog();
+                if (result == true)
+                {
+                    Json_PATH = openFileDialog.FileName;//fileの絶対パスを表示
+                    using (Stream fileStream = openFileDialog.OpenFile())
+                    {
+                        StreamReader sr = new StreamReader(fileStream, true);
+                        timeTable.Path_to_Class(Json_PATH);
+
+                    }
+                    d = CBOX1.SelectedIndex;
+                    t = CBOX2.SelectedIndex;
+                    
+                }
+            }finally{
+                setMeeting(d, t);
+            }
+           
+
+            
 
         }
 
