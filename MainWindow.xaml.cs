@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -24,7 +27,6 @@ using System.Windows.Shapes;
 // using System.IO;
 using Microsoft.Win32;
 using Windows.Services.Maps;
-
 namespace CS
 {
     /// <summary>
@@ -38,7 +40,7 @@ namespace CS
         // test用
         // public int[,] period_times = new int[,] { { 0, 2 }, { 0, 4 }, { 0, 7 }, { 0, 9 }, { 0, 10 } };
 
-        public int[,] period_times = new int[,] { { 9, 0 }, { 10, 40 }, { 13, 20 }, { 15, 10 }, { 17, 0 } };
+        public int[,] period_times = new int[,] { { 8, 55 }, { 10, 45 }, { 13, 15 }, { 15, 5 }, { 16, 55 } };
 
         public Dictionary<string, string> Day_Dic { get; set; }//コンボボックスの曜日の要素
         public Dictionary<string, string> Period_Dic { get; set; }//コンボボックスの何限の要素
@@ -346,10 +348,13 @@ namespace CS
             Time_scadule_5(period_times[4, 0], period_times[4, 1]);//スケジューラー5限分生成
             CBOX1.SelectedIndex = 1;//コンボボックスの初期値
             CBOX2.SelectedIndex = 0;//コンボボックスの初期値 
-            string default_json ="default_timetable.json";
-            try{
+            string default_json = "default_timetable.json";
+            try
+            {
                 timeTable.Path_to_Class(default_json);
-            }catch(FileNotFoundException){
+            }
+            catch (FileNotFoundException)
+            {
                 MessageBox.Show("default_timetableが見つかりませんでした\njsonファイルを選択してください");
                 Microsoft.Win32.OpenFileDialog openFileDialog = new();
                 openFileDialog.Filter = "Json(.json)|*.json|All Files (*.*)|*.*";
@@ -365,14 +370,16 @@ namespace CS
                     }
                     d = CBOX1.SelectedIndex;
                     t = CBOX2.SelectedIndex;
-                    
+
                 }
-            }finally{
+            }
+            finally
+            {
                 setMeeting(d, t);
             }
-           
 
-            
+
+
 
         }
 
@@ -473,34 +480,30 @@ namespace CS
                 //string run_period = Day_Dic[CBOX2.SelectedValue.ToString()];
                 //string run_dayofweek =Period_Dic[CBOX1.SelectedValue.ToString()];
 
-                int run_period = CBOX2.SelectedIndex+1;
-                var myWebProcess = new Process
+                int run_period = CBOX2.SelectedIndex + 1;
+
+                HttpClient httpClient = new HttpClient();
+                Dictionary<string, string> strs = new Dictionary<string, string>()
                 {
-                    StartInfo = new ProcessStartInfo("Python/webhook.exe")
-                    {
-                        UseShellExecute = false,//呼び出し時にシェル使うか
-                        CreateNoWindow = true,
-                        RedirectStandardOutput = false,//C#の出力にリダイレクトするか
-
-                        Arguments = " " + timeTable.Webhook.Webhook_url + " "+ run_period + "限の授業が開始しました。"
-                    }
+                    { "content", run_period + "限の授業が開始しました。" },
+                    { "username", "zoom_in_1" },
+                    { "avatar_url", "https://icooon-mono.com/i/icon_10669/icon_106691_64.png" }
                 };
-                myWebProcess.Start();
-                myWebProcess.WaitForExit();
-                myWebProcess.Close();
-
-
+                TaskAwaiter<HttpResponseMessage> awaiter = httpClient.PostAsync(timeTable.Webhook.Webhook_url, new
+                FormUrlEncodedContent(strs)).GetAwaiter();
+                awaiter.GetResult();
             }
 
 
             var myZoomProcess = new Process
             {
-                StartInfo = new ProcessStartInfo("Python/Auto_zoom_start.exe")
+                StartInfo = new ProcessStartInfo("cmd.exe")
                 {
                     UseShellExecute = false,//呼び出し時にシェル使うか
                     CreateNoWindow = true,
                     RedirectStandardOutput = false,//C#の出力にリダイレクトするか
-                    Arguments = " " + useMeet.Zoom_id + " " + useMeet.Zoom_pwd
+                    // Arguments = "/C notepad.exe"
+                    Arguments = "/C start zoommtg:\"//zoom.us/join?confno=" + useMeet.Zoom_id + "&pwd=" + useMeet.Zoom_pwd + "\""//cliで実行起動するコマンド
 
                 }
             };
@@ -508,39 +511,6 @@ namespace CS
             myZoomProcess.Start();
             //myZoomProcess.WaitForExit();
             myZoomProcess.Close();
-
-
-
-            if (CH4.IsChecked.Value)
-            {
-
-                var myChatProcess = new Process
-                {
-                    StartInfo = new ProcessStartInfo()
-                    {
-                        FileName = "Python/ImageProcessing.exe",
-                        UseShellExecute = false,
-                        CreateNoWindow = true,
-                        RedirectStandardOutput = false,
-
-
-
-
-                        Arguments = " " + timeTable.Webhook.Webhook_url + " " + "1"
-                    }
-                };
-
-
-                myChatProcess.Start();
-                //myChatProcess.WaitForExit();
-                //myChatProcess.Close();
-                myChatProcess.Close();
-
-
-
-
-                //myChatProcess.Close();
-            }
 
             //MessageBox.Show("ボタンが押されました");
         }
@@ -756,7 +726,6 @@ namespace CS
             subject.Text = useMeet.Meeting_name;
             CH1.IsChecked = useMeet.Webhook_on;
             CH2.IsChecked = useMeet.Zoom_Auto;//多分持ってこれる
-            CH4.IsChecked = useMeet.chat_on;
 
 
         }

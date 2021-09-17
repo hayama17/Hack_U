@@ -29,6 +29,7 @@ namespace CS
         {
             InitializeComponent();
             url.Text = post_url;
+            return_string = url.Text;
             
         }
 
